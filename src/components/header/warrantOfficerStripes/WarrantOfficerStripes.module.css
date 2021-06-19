@@ -1,0 +1,35 @@
+.outerHamburger {
+   position: absolute;
+  left: 2rem;
+  /* top: 3rem;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bars {
+  display: inline-block;
+  padding: 0 20px;
+  width: 75px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+}
+
+.bar {
+  display: block;
+  position: absolute;
+  width: 6rem;
+  height: 9px;
+  background-color: #5a1616;
+  transition: cubic-bezier(0.3, 0, 0.5, 1) 0.25s;
+  transform: translateY(0);
+}
+
+.hover {
+  background-color: darkblue;
+  opacity: 0.5;
+  transform: translateY(-13px);
+}
