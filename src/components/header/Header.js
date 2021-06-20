@@ -13,9 +13,13 @@ const Header = (props) => {
     }, 150);
   }, []);
 
+  const stripesClicked = () => { 
+      props.stripesHandler();
+  }
+
   return (
     <header className={styles.header} style={{ transform: headerPosition }}>
-      <WarrantOfficerStripes />
+      <WarrantOfficerStripes stripesHandler={stripesClicked}/>
 
       <div className={styles.titleDiv}>
         <h1 className={styles.mainTitle}>KEN JOHNSTON SOFTWARE</h1>

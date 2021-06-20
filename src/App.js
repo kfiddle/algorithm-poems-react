@@ -3,10 +3,9 @@ import { Fragment, useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import PennyFarthing from "./components/pennyFarthing/PennyFarthing";
 import SideBar from "./components/sideBar/SideBar";
-import AboutPanel from './components/aboutPanel/AboutPanel.js';
+import AboutPanel from "./components/aboutPanel/AboutPanel.js";
 
 import "./App.css";
-
 
 const menuList = ["About Me", "Current Projects", "Contact Me"];
 
@@ -16,6 +15,7 @@ let CONTACT;
 
 function App() {
   const [bikeRiding, setBikeRiding] = useState(true);
+  const [stripesClicked, setStripesClicked] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,13 +28,17 @@ function App() {
     CURRENTPROJECTS = choice === "Current Projects";
     CONTACT = choice === "Contact Me";
 
-    console.log(CONTACT)
+    console.log(CONTACT);
+  };
+
+  const stripesHandler = () => {
+    setStripesClicked(true);
   };
 
   return (
     <Fragment>
-      <Header />
-      <SideBar menuList={menuList} choice={choiceHandler} />
+      <Header stripesHandler={stripesHandler} />
+      {stripesClicked && <SideBar menuList={menuList} choice={choiceHandler} />}
       {bikeRiding && <PennyFarthing />}
       {ABOUTME && <AboutPanel />}
     </Fragment>

@@ -6,9 +6,11 @@ const WarrantOfficerStripes = (props) => {
   const [bar2, setBar2] = useState("");
   const [bar3, setBar3] = useState("");
 
-  const [spin1, setSpin1] = useState(0);
-  const [spin2, setSpin2] = useState(0);
-  const [spin3, setSpin3] = useState(0);
+
+
+  const [spin, setSpin] = useState([0, 0, 0]);
+
+  const [glowOn, setGlowOn] = useState(true);
 
   const [clicked, setClicked] = useState(false);
 
@@ -33,15 +35,23 @@ const WarrantOfficerStripes = (props) => {
 
   const spinTheBars = () => {
     setClicked(true);
-    setTimeout(() => {
-      setSpin1((previous) => previous + 0.5);
-    }, 10);
-    setTimeout(() => {
-      setSpin2((previous) => previous + 0.5);
-    }, 80);
-    setTimeout(() => {
-      setSpin3((previous) => previous + 0.5);
-    }, 150);
+
+    for (let j = 0; j < 3; j++) {
+      setTimeout(() => {
+        if (j === 0) {
+          setSpin((previous) => [previous[j] + 0.5, previous[1], previous[2]]);
+        } else if (j === 1) {
+          setSpin((previous) => [previous[0], previous[j] + 0.5, previous[2]]);
+        } else {
+          setSpin((previous) => [previous[0], previous[1], previous[j] + 0.5]);
+        }
+      }, j * 70);
+    }
+  };
+
+  const stripesClicked = () => {
+    spinTheBars();
+    props.stripesHandler();
   };
 
   return (
@@ -52,30 +62,29 @@ const WarrantOfficerStripes = (props) => {
       }}
       onMouseLeave={() => {
         hovering(false);
-        console.log("yeppers");
       }}
-      onClick={spinTheBars}
+      onClick={stripesClicked}
     >
       <div className={styles.bars}>
         <span
           className={`${styles.bar} ${styles[bar1]}`}
           style={{
             top: "10px",
-            transform: clicked ? `rotate(${spin1}turn)` : "",
+            transform: clicked ? `rotate(${spin[0]}turn)` : "",
           }}
         ></span>
         <span
           className={`${styles.bar} ${styles[bar2]}`}
           style={{
             top: "26px",
-            transform: clicked ? `rotate(${spin2}turn)` : "",
+            transform: clicked ? `rotate(${spin[1]}turn)` : "",
           }}
         ></span>
         <span
           className={`${styles.bar} ${styles[bar3]}`}
           style={{
             top: "41px",
-            transform: clicked ? `rotate(${spin3}turn)` : "",
+            transform: clicked ? `rotate(${spin[2]}turn)` : "",
           }}
         ></span>
       </div>
