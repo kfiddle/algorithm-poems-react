@@ -14,8 +14,11 @@ const SideBar = (props) => {
   const [menu2, setMenu2] = useState("");
   const [menu3, setMenu3] = useState("");
 
+
+
   const clicked = (choice) => {
     props.choice(choice);
+
   };
 
   const list = <MenuItem title={"About Me"} chosen={clicked} />;
@@ -23,7 +26,7 @@ const SideBar = (props) => {
   useEffect(() => {
     const slideIn = setTimeout(() => {
       setSideBarPlace(10);
-      setHiddenDivSpot(10)
+      setHiddenDivSpot(10);
     }, 350);
 
     const firstMenu = setTimeout(() => {
@@ -39,8 +42,8 @@ const SideBar = (props) => {
     }, 1600);
 
     const vanishHiddenDiv = setTimeout(() => {
-        setHiddenDivAlive(false)
-    }, 1800)
+      setHiddenDivAlive(false);
+    }, 1800);
   }, []);
 
   const menuListToDisplay = props.menuList.map((menuItem) => (
@@ -49,7 +52,7 @@ const SideBar = (props) => {
 
   return (
     <Fragment>
-      { hiddenDivAlive && <HiddenDiv placement={hiddenDivSpot} />}
+      {hiddenDivAlive && <HiddenDiv placement={hiddenDivSpot} />}
 
       <div
         className={styles.sideBarDiv}
