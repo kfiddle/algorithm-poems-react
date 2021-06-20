@@ -8,6 +8,7 @@
     color: white;
     font-weight: 900;
     font-size: 1.8rem;
+    cursor: pointer;
     transition: .4s;
   }
   
