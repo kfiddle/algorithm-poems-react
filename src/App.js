@@ -21,7 +21,7 @@ function App() {
     setTimeout(() => {
       setBikeRiding(false);
     }, 24000);
-  });
+  }, []);
 
   const choiceHandler = (choice) => {
     ABOUTME = choice === "About Me";
