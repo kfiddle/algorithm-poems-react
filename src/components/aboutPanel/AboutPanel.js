@@ -14,9 +14,7 @@ const AboutPanel = (props) => {
             setRightCurtainPlace(0);
         }, 200)
 
-
     }, [])
-
 
 
   return (

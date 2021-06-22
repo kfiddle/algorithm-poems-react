@@ -3,19 +3,24 @@ import { Fragment, useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import PennyFarthing from "./components/pennyFarthing/PennyFarthing";
 import SideBar from "./components/sideBar/SideBar";
-import AboutPanel from "./components/aboutPanel/AboutPanel.js";
+import AboutPanel from './components/aboutPanel/AboutPanel';
 
 import "./App.css";
 
-const menuList = ["About Me", "Current Projects", "Contact Me"];
+const ABOUTME = 'About Me';
+const CURRENTPROJECTS = 'Current Projects';
+const CONTACT = 'Contact Me';
 
-let ABOUTME;
-let CURRENTPROJECTS;
-let CONTACT;
+// const menuList = ["About Me", "Current Projects", "Contact Me"];
+const menuList = [ABOUTME, CURRENTPROJECTS, CONTACT];
+
+const choiceObject = {'About Me': false, 'Current Projects': false, 'Contact Me': false}
 
 function App() {
   const [bikeRiding, setBikeRiding] = useState(true);
   const [stripesClicked, setStripesClicked] = useState(false);
+  const [choices, setChoices] = useState(choiceObject);
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,13 +28,18 @@ function App() {
     }, 24000);
   }, []);
 
-  const choiceHandler = (choice) => {
-    ABOUTME = choice === "About Me";
-    CURRENTPROJECTS = choice === "Current Projects";
-    CONTACT = choice === "Contact Me";
-
-    console.log(CONTACT);
-  };
+  const choiceHandler = (chosen) => {
+    let tempChoices = { ...choiceObject};
+    for (let choice in tempChoices) {
+    if (choice === chosen) {
+      tempChoices[choice] = true;
+    }
+  }
+  setChoices(tempChoices);
+  console.log(tempChoices)
+}
+     
+  
 
   const stripesHandler = () => {
     setStripesClicked(true);
@@ -40,7 +50,7 @@ function App() {
       <Header stripesHandler={stripesHandler} />
       {stripesClicked && <SideBar menuList={menuList} choice={choiceHandler} />}
       {bikeRiding && <PennyFarthing />}
-      {ABOUTME && <AboutPanel />}
+      {choices['About Me'] && <AboutPanel />}
     </Fragment>
   );
 }
