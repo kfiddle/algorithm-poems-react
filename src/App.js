@@ -36,13 +36,19 @@ function App() {
       }
     }
   setChoices(tempChoices);
-  setStripesClicked(false);
+  setStripesClicked(false)
 }
      
-  
 
   const stripesHandler = () => {
     setStripesClicked(!stripesClicked);
+    console.log(stripesClicked)
+
+    if (!stripesClicked) {
+      setChoices(choiceObject);
+    }
+
+  
   };
 
   return (

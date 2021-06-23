@@ -10,7 +10,7 @@ header {
   position: fixed;
 
   z-index: 1;
-  transition: cubic-bezier(0.4, 0, 0.58, 1) 0.75s;
+  transition: cubic-bezier(0.4, 0, 0.58, 1) 2.75s;
 }
 
 .titleDiv {

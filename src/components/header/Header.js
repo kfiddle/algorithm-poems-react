@@ -10,7 +10,7 @@ const Header = (props) => {
   useEffect(() => {
     const slideTimer = setTimeout(() => {
       setHeaderPosition("translateY(0)");
-    }, 150);
+    }, 2200);
   }, []);
 
   const stripesClicked = () => { 

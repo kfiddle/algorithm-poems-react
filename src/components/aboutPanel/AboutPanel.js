@@ -12,17 +12,17 @@ const AboutPanel = (props) => {
         setTimeout(() => {
             setLeftCurtainPlace(0);
             setRightCurtainPlace(0);
-        }, 200)
+        }, 10)
 
     }, [])
 
 
   return (
     <Fragment>
-      <div className={styles.headShotCurtain} style={{transform : leftCurtainPlace}}>
+      <div className={styles.headShotCurtain} style={{transform : `translateX(${leftCurtainPlace}vw)`}}>
         <img src={headShot} className={styles.headShot}></img>
       </div>
-      <div className={styles.storyCurtain} style={{transform : rightCurtainPlace}}>
+      <div className={styles.storyCurtain} style={{transform : `translateX(${rightCurtainPlace}vw)`}}>
         <div className={`${styles.storyBlock} ${styles.topThirdStory}`}>
           <h2>
             Until recently, I spent each day as a professional violin player
