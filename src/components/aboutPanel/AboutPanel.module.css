@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 10vh;
+  top: 20vh;
   width: 35vw;
   height: 90vh;
   /* transform: translateX(-52vw); */
@@ -29,7 +29,7 @@
 
 .storyCurtain {
   position: absolute;
-  top: 10vh;
+  top: 20vh;
   right: 0;
   width: 65vw;
   height: 90vh;

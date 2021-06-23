@@ -31,26 +31,28 @@ function App() {
   const choiceHandler = (chosen) => {
     let tempChoices = { ...choiceObject};
     for (let choice in tempChoices) {
-    if (choice === chosen) {
-      tempChoices[choice] = true;
+      if (choice === chosen) {
+        tempChoices[choice] = true;
+      }
     }
-  }
   setChoices(tempChoices);
-  console.log(tempChoices)
+  setStripesClicked(false);
 }
      
   
 
   const stripesHandler = () => {
-    setStripesClicked(true);
+    setStripesClicked(!stripesClicked);
   };
 
   return (
     <Fragment>
       <Header stripesHandler={stripesHandler} />
-      {stripesClicked && <SideBar menuList={menuList} choice={choiceHandler} />}
+      <SideBar menuList={menuList} choice={choiceHandler} visible={stripesClicked} />
       {bikeRiding && <PennyFarthing />}
       {choices['About Me'] && <AboutPanel />}
+      {/* {choices['Current Projects'] && <ProjectsPanel />} */}
+      {/* {choices['Contact Me'] && <ContactPanel />} */}
     </Fragment>
   );
 }
