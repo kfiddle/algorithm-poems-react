@@ -8,19 +8,28 @@ const AboutPanel = (props) => {
     const [leftCurtainPlace, setLeftCurtainPlace] = useState(-52);
     const [rightCurtainPlace, setRightCurtainPlace] = useState(70);
 
+    const [imageFilter, setImageFilter] = useState(300);
+    const [leftCurtainOpacity, setLeftCurtainOpacity] = useState(0.2);
+
     useEffect(() => {
         setTimeout(() => {
             setLeftCurtainPlace(0);
             setRightCurtainPlace(0);
+            
         }, 10)
+
+        setTimeout(() => {
+          setLeftCurtainOpacity(1.0);
+          setImageFilter(100)
+        }, 300)
 
     }, [])
 
 
   return (
     <Fragment>
-      <div className={styles.headShotCurtain} style={{transform : `translateX(${leftCurtainPlace}vw)`}}>
-        <img src={headShot} className={styles.headShot}></img>
+      <div className={styles.headShotCurtain} style={{transform : `translateX(${leftCurtainPlace}vw)`, opacity: leftCurtainOpacity}}>
+        <img src={headShot} className={styles.headShot} style={{filter: `brightness(${imageFilter}%)`}}></img>
       </div>
       <div className={styles.storyCurtain} style={{transform : `translateX(${rightCurtainPlace}vw)`}}>
         <div className={`${styles.storyBlock} ${styles.topThirdStory}`}>

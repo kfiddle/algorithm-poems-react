@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import PennyFarthing from "./components/pennyFarthing/PennyFarthing";
 import SideBar from "./components/sideBar/SideBar";
 import AboutPanel from './components/aboutPanel/AboutPanel';
+import ContactFormPanel from "./components/contactFormPanel/ContactFormPanel";
 
 import "./App.css";
 
@@ -58,7 +59,7 @@ function App() {
       {bikeRiding && <PennyFarthing />}
       {choices['About Me'] && <AboutPanel />}
       {/* {choices['Current Projects'] && <ProjectsPanel />} */}
-      {/* {choices['Contact Me'] && <ContactPanel />} */}
+      {choices['Contact Me'] && <ContactFormPanel />}
     </Fragment>
   );
 }

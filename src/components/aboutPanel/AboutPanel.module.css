@@ -6,6 +6,7 @@
   top: 20vh;
   width: 35vw;
   height: 90vh;
+  
   background: #708090;
   background: linear-gradient(
     to Right,
@@ -21,7 +22,7 @@
 
 .headShot {
   width: 20vw;
-  /* filter: brightness(300%); */
+  
   transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
