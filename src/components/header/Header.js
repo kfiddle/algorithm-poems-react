@@ -19,7 +19,7 @@ const Header = (props) => {
 
   return (
     <header className={styles.header} style={{ transform: headerPosition }}>
-      <WarrantOfficerStripes stripesHandler={stripesClicked}/>
+      <WarrantOfficerStripes stripesHandler={stripesClicked} stripesClicked={props.stripesClicked}/>
 
       <div className={styles.titleDiv}>
         <h1 className={styles.mainTitle}>KEN JOHNSTON SOFTWARE</h1>

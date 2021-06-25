@@ -6,19 +6,21 @@
 
 .bigWheel {
   position: relative;
+  right: 14%;
   animation: spin infinite 4s linear;
 
 }
 
 .pennyFrame {
   position: relative;
-  transform: translate(10vw, -5.5vh);
+  
+  transform: translate(38%, -26%);
 
 }
 
 .smallWheel {
-  position: absolute;
-  left: 37%;
+  position: relative;
+  left: 32%;
   bottom: 5%;
   animation: spin infinite 1.6s linear;
 }

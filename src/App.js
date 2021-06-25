@@ -54,7 +54,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header stripesHandler={stripesHandler} />
+      <Header stripesHandler={stripesHandler} stripesClicked={stripesClicked} />
       <SideBar menuList={menuList} choice={choiceHandler} visible={stripesClicked} />
       {bikeRiding && <PennyFarthing />}
       {choices['About Me'] && <AboutPanel />}
