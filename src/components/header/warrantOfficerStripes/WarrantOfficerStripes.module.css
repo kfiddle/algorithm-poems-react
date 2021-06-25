@@ -21,8 +21,8 @@
 .bar {
   display: block;
   position: absolute;
-  width: 6rem;
-  height: 9px;
+  width: 8rem;
+  height: 10px;
   background-color: #5a1616;
   transition: cubic-bezier(0.3, 0, 0.5, 1) 0.25s;
   transform: translateY(0);
