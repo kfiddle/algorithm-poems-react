@@ -10,6 +10,11 @@ const ProjectBox = (props) => {
 
   let clickForDeets = useDetailSpeller(hovered);
 
+  const clickHandler = () => {
+    props.clickHandler(props.whichBox);
+
+  }
+
   const hoverGlow = (on) => {
     if (on) {
       setFilter("brightness(80%) hue-rotate(200deg) saturate(60%) invert(20%)");
@@ -36,6 +41,7 @@ const ProjectBox = (props) => {
       onMouseLeave={() => {
         hoverGlow(false);
       }}
+      onClick={clickHandler}
     >
       <h2 className={styles.innerProjectHeader}>{clickForDeets}</h2>
     </div>

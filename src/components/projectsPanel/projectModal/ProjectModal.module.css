@@ -1,0 +1,30 @@
+.projectModal {
+    position: relative;
+    flex-direction: column;
+    background: white;
+    background: linear-gradient(to Left, black, #5a3939);
+    width: 80vw;
+    height: 100vh;
+    /* transform: translateX(40vw); */
+    /* top: 10vh; */
+    right: 0;
+    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+  }
+
+  .xbutton {
+    width: 4rem;
+    height: 5rem;
+    background: rgb(47, 57, 66);
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .xbutton h2 {
+      margin:0;
+      color: white;
+  }
+
+  .xbutton:hover {
+      background: rgb(61, 61, 90);
+  }
