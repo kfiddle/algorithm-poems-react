@@ -30,7 +30,8 @@
 .third {
   top: 50%;
   left: 0;
-  background: gray;
+  background-image: url("../../assets/apexSlide1.jpg");
+  
   transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
 }
 

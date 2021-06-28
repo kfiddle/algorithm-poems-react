@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import styles from "./ContactFormPanel.module.css";
 
@@ -10,6 +10,11 @@ const ContactFormPanel = () => {
     phoneSpot: 100,
   });
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
+
+  const name = useRef();
+  const email = useRef();
+  const phoneNumber = useRef();
+  const message = useRef();
 
   useEffect(() => {
     setTimeout(() => {
@@ -25,6 +30,28 @@ const ContactFormPanel = () => {
     }, 500);
   }, []);
 
+  const submitInfo = () => {
+      let contactInfo = {
+        fullName: name.current.value,
+        phoneNumber: phoneNumber.current.value,
+        emailAddress: email.current.value,
+        message: message.current.value,
+      };
+
+      console.log(contactInfo)
+  
+      fetch("https://agile-basin-20718.herokuapp.com/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contactInfo),
+      });
+  
+    }
+
+
+
+  
+
   return (
     <div
       className={styles.contactBox}
@@ -36,25 +63,28 @@ const ContactFormPanel = () => {
 
       <div className={styles.inputsBox}>
         <input
+          ref={name}
           className={styles.nameInput}
           placeholder={"Name"}
           style={{ transform: `translateX(${inputPlaces.nameSpot}vw)` }}
         ></input>
         <input
+          ref={email}
           className={styles.emailInput}
           placeholder={"Email"}
           style={{ transform: `translateX(${inputPlaces.emailSpot}vw)` }}
         ></input>
         <input
+          ref={phoneNumber}
           className={styles.phoneInput}
           placeholder={"Phone Number"}
           style={{ transform: `translateX(${inputPlaces.phoneSpot}vw)` }}
         ></input>
       </div>
 
-      <textarea className={styles.messageInput}></textarea>
+      <textarea className={styles.messageInput} ref={message}></textarea>
 
-      <button className={styles.submitButton}>
+      <button className={styles.submitButton} onClick={submitInfo}>
         <h2>Submit</h2>
       </button>
 
