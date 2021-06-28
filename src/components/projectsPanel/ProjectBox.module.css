@@ -1,0 +1,52 @@
+.projectBox {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-size: cover;
+}
+
+.first {
+  top: 0;
+  left: 0;
+  background-image: url('../../assets/skypond.jpg');
+  background-size: cover;
+  background-position: 0 83%;
+  transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.first .innerProjectHeader {
+  top: 15%;
+  left: 10%;
+}
+
+.second {
+  top: 0;
+  left: 50%;
+  background-image: url("../../assets/colonialCurrencyShot.jpg");
+  background-size: cover;
+  transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.third {
+  top: 50%;
+  left: 0;
+  background: gray;
+  transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+
+.fourth {
+  top: 50%;
+  left: 50%;
+  background: gainsboro;
+  transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.innerProjectHeader {
+  color: gold;
+  font-weight: 900;
+  font-size: 2.1rem;
+  position: absolute;
+  top: 60%;
+  left: 5%;
+}

@@ -16,13 +16,13 @@ const MenuItem = (props) => {
   }, [])
 
   return (
-    <h2
+    <p
       onClick={clickHandler}
       className={styles.sideBarItem}
       style={glowing? darkLetters : null}
     >
       {props.title}
-    </h2>
+    </p>
   );
 };
 

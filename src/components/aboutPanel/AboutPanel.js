@@ -51,9 +51,9 @@ const AboutPanel = (props) => {
         </div>
         <div className={`${styles.storyBlock} ${styles.bottomThirdStory}`}>
           <p>
-            ...and although like all the cool kids these days, I'm exploring as
-            much as I can in libraries like React, let's not forget that
-            front-end skill is still based in plain, old, vanilla Javascript.
+            ...and although I love exploring as
+            much as I can in libraries like React, let's not forget that much of 
+            front-end skill is still rooted in plain, old, vanilla Javascript.
           </p>
         </div>
       </div>

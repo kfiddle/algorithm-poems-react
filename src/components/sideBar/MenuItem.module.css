@@ -1,18 +1,16 @@
-
-
-
 .sideBarItem {
-    margin-left: 5vw;
-    margin-right: 0;
-    padding-right: 3rem;
-    color: white;
-    font-weight: 900;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: .4s;
-  }
-  
-  .sideBarItem:hover {
-      color:gold;
-  
-  }
+  margin-left: 5vw;
+  margin-right: 0;
+  padding-right: 3rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.sideBarItem:hover {
+  color: gold;
+}
