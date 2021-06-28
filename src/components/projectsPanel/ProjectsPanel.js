@@ -5,8 +5,11 @@ import ProjectModal from "./projectModal/ProjectModal";
 
 import styles from "./ProjectsPanel.module.css";
 
+const projects = {'first': false, 'second': false, 'third': false, 'fourth': false};
+
 const ProjectsPanel = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [clickedProject, setClickedProject] = useState('')
 
   const closeModal = () => {
     setModalOpen(false);
@@ -14,25 +17,17 @@ const ProjectsPanel = (props) => {
 
   const modalClicked = (project) => {
     setModalOpen(true);
+    setClickedProject(project);
+
   };
-
-  const ourProjects = [];
-  const classes = ["first", "second", "third", "fourth"];
-
-  for (let j = 0; j < 4; j++) {
-    ourProjects.push(
-      <ProjectBox
-        whichBox={classes[j]}
-        clickHandler={modalClicked}
-        key={Math.random()}
-      />
-    );
-  }
 
   return (
     <div className={styles.projectsPanel}>
-      {ourProjects}
-      {modalOpen && <ProjectModal closeModal={closeModal} />};
+      <ProjectBox whichBox={"first"} clickHandler={modalClicked} />
+      <ProjectBox whichBox={"second"} clickHandler={modalClicked} />
+      <ProjectBox whichBox={"third"} clickHandler={modalClicked} />
+      <ProjectBox whichBox={"fourth"} clickHandler={modalClicked} />
+      {modalOpen && <ProjectModal closeModal={closeModal} whichProject={clickedProject} />};
     </div>
   );
 };
