@@ -5,7 +5,7 @@ import styles from "./MenuItem.module.css";
 const MenuItem = (props) => {
   const [glowing, setGlowing] = useState(true);
 
-  const darkLetters = { color: "gold", fontSize: "2rem" };
+  const darkLetters = { color: "gold", fontSize: "1.8rem" };
 
   const clickHandler = () => {
     props.chosen(props.title);

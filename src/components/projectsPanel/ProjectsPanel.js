@@ -1,25 +1,28 @@
 import { useState, useEffect, Fragment } from "react";
 
-import ProjectBox from './ProjectBox';
+import ProjectBox from "./ProjectBox";
 
 import styles from "./ProjectsPanel.module.css";
 
 const ProjectsPanel = (props) => {
- 
+  const [modalOpen, setModalOpen] = useState(false);
 
-  return <div className={styles.projectsPanel}>
+  const modalClicked = (project) => {
+      console.log(project);
+  }
 
-      <ProjectBox whichBox={'first'} />
-      <ProjectBox whichBox={'second'}/>
+  const ourProjects = [];
+  const classes = ['first', 'second', 'third', 'fourth'];
 
-      <ProjectBox whichBox={'third'}/>
-      <ProjectBox whichBox={'fourth'}/>
-      
-      </div>;
+  for (let j = 0; j < 4; j++) {
+      ourProjects.push(<ProjectBox whichBox={classes[j]} clickHandler={modalClicked} />)
+  }
 
-
-
-
+  return (
+    <div className={styles.projectsPanel}>
+      {ourProjects}
+    </div>
+  );
 };
 
 export default ProjectsPanel;
