@@ -4,8 +4,25 @@ import styles from "./ProjectModal.module.css";
 
 const ProjectModal = (props) => {
   const [modalPlace, setModalPlace] = useState(100);
+  const [slideIndex, setSlideIndex] = useState(0);
 
-  const image = props.whichProject.carousel[0];
+  let image = props.whichProject.carousel[slideIndex];
+
+  const moveSlides = (direction) => {
+    let length = props.whichProject.carousel.length;
+
+    if (direction === "forward") {
+      slideIndex === length - 1
+        ? setSlideIndex(0)
+        : setSlideIndex(slideIndex + 1);
+    } else {
+      slideIndex === 0
+        ? setSlideIndex(length - 1)
+        : setSlideIndex(slideIndex - 1);
+    }
+
+    image = props.whichProject.carousel[slideIndex];
+  };
 
   const closeModal = () => {
     setModalPlace(100);
@@ -36,16 +53,23 @@ const ProjectModal = (props) => {
         </div>
         <div className={styles.slideDiv}>
           <div className={styles.slideImageDiv}>
-            <img src={image} className={styles.image}/>
+            <img src={image} className={styles.image} />
           </div>
 
-          <div
+          
+        </div>
+        <div
             className={`${styles.carousel_buttons} ${styles.arrow_left}`}
+            onClick={() => {
+              moveSlides("back");
+            }}
           ></div>
           <div
             className={`${styles.carousel_buttons} ${styles.arrow_right}`}
+            onClick={() => {
+              moveSlides("forward");
+            }}
           ></div>
-        </div>
       </div>
     </div>
   );

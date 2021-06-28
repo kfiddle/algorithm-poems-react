@@ -54,18 +54,25 @@
   position: relative;
 }
 
+.slideImageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
 .image {
-    width: 90%;
+  max-width: 90%;
 }
 
 .carousel_buttons {
   position: absolute;
-  top: 75%;
+  top: 70%;
   cursor: pointer;
 }
 
 .arrow_left {
-  left: 17%;
+  left: 30%;
   background-color: transparent;
   border-bottom: 3rem solid transparent;
   border-top: 3rem solid transparent;
