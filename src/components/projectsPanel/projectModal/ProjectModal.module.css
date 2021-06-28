@@ -30,6 +30,34 @@
   background: rgb(61, 61, 90);
 }
 
+.innerModalDiv {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  margin-left: 5%;
+  height: 75%;
+  width: 90%;
+}
+
+.descriptionDiv {
+  background-color: transparent;
+}
+
+.descriptionText {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2em;
+  letter-spacing: 0.15em;
+  margin: 1rem;
+}
+
+.slideDiv {
+  position: relative;
+}
+
+.image {
+    width: 90%;
+}
+
 .carousel_buttons {
   position: absolute;
   top: 75%;

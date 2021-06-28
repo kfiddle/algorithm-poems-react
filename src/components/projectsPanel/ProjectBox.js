@@ -33,7 +33,7 @@ const ProjectBox = (props) => {
 
   return (
     <div
-      className={`${styles.projectBox} ${styles[props.whichBox]}`}
+      className={`${styles.projectBox} ${styles[props.whichBox.location]}`}
       style={{ transform: `translateY(${boxSpot}vh)`, filter: filter }}
       onMouseEnter={() => {
         hoverGlow(true);
