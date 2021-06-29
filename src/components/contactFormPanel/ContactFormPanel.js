@@ -1,6 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+import emailjs from "emailjs-com";
 
 import styles from "./ContactFormPanel.module.css";
+
+const userId = 'user_ziX5oSLNJRahUxs9dz2xC';
+const serviceId = 'service_whc7i1l';
+const templateId = 'template_xhux42i';
+const myEmail = 'kenjsoftware@gmail.com';
+
+
 
 const ContactFormPanel = () => {
   const [contactPanelPlace, setContactPanelPlace] = useState(100);
@@ -40,11 +48,13 @@ const ContactFormPanel = () => {
 
       console.log(contactInfo)
   
-      fetch("https://agile-basin-20718.herokuapp.com/send-message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(contactInfo),
-      });
+      // fetch("https://agile-basin-20718.herokuapp.com/send-message", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(contactInfo),
+      // }).then(response => console.log(response));
+
+      emailjs.send(serviceId, templateId, contactInfo, userId);
   
     }
 
