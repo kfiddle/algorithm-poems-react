@@ -3,12 +3,9 @@ import emailjs from "emailjs-com";
 
 import styles from "./ContactFormPanel.module.css";
 
-const userId = 'user_ziX5oSLNJRahUxs9dz2xC';
-const serviceId = 'service_whc7i1l';
-const templateId = 'template_xhux42i';
-const myEmail = 'kenjsoftware@gmail.com';
-
-
+const userId = "user_ziX5oSLNJRahUxs9dz2xC";
+const serviceId = "service_whc7i1l";
+const templateId = "template_xhux42i";
 
 const ContactFormPanel = () => {
   const [contactPanelPlace, setContactPanelPlace] = useState(100);
@@ -18,6 +15,7 @@ const ContactFormPanel = () => {
     phoneSpot: 100,
   });
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
+  const [foneNumber, setfoneNumber] = useState("");
 
   const name = useRef();
   const email = useRef();
@@ -38,29 +36,30 @@ const ContactFormPanel = () => {
     }, 500);
   }, []);
 
-  const submitInfo = () => {
-      let contactInfo = {
-        fullName: name.current.value,
-        phoneNumber: phoneNumber.current.value,
-        emailAddress: email.current.value,
-        message: message.current.value,
-      };
+  const formatNumber = (event) => {
+    console.log(event);
 
-      console.log(contactInfo)
-  
-      // fetch("https://agile-basin-20718.herokuapp.com/send-message", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(contactInfo),
-      // }).then(response => console.log(response));
-
-      emailjs.send(serviceId, templateId, contactInfo, userId);
-  
+    if (isNaN(event.nativeEvent.data)) {
+      return;
     }
 
+    if (event.target.value.length === 3) {
+      setfoneNumber((previous) => event.target.value + '-');
+    } else {
+      setfoneNumber((previous) => event.target.value);
+    }
+  };
 
+  const submitInfo = () => {
+    let contactInfo = {
+      fullName: name.current.value,
+      phoneNumber: phoneNumber.current.value,
+      emailAddress: email.current.value,
+      message: message.current.value,
+    };
 
-  
+    emailjs.send(serviceId, templateId, contactInfo, userId);
+  };
 
   return (
     <div
@@ -89,6 +88,8 @@ const ContactFormPanel = () => {
           className={styles.phoneInput}
           placeholder={"Phone Number"}
           style={{ transform: `translateX(${inputPlaces.phoneSpot}vw)` }}
+          onChange={formatNumber}
+          value={foneNumber}
         ></input>
       </div>
 
