@@ -8,7 +8,7 @@ const ProjectBox = (props) => {
   const [filter, setFilter] = useState("");
   const [hovered, setHovered] = useState(false);
 
-  let clickForDeets = useDetailSpeller(hovered);
+  let clickForDeets = useDetailSpeller(hovered, "click for details", "");
 
   const clickHandler = () => {
     props.clickHandler(props.whichBox);

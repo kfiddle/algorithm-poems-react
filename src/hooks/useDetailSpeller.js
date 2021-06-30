@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
-const useDetailSpeller = (on) => {
+const useDetailSpeller = (on, statementOn, statementOff) => {
   const [letters, setLetters] = useState("");
 
-  const deets = "click for details";
+  // const deets = "click for details";
   let lettersIndex = 0;
 
   useEffect(() => {
 
     function oneLetter() {
       function changeALetter(timestamp) {
-        if (lettersIndex < deets.length + 1) {
-          setLetters(deets.substr(0, lettersIndex));
+        if (lettersIndex < statementOn.length + 1) {
+          setLetters(statementOn.substr(0, lettersIndex));
           lettersIndex++;
         }
         requestAnimationFrame(oneLetter);
@@ -22,7 +22,7 @@ const useDetailSpeller = (on) => {
     if (on) {
       oneLetter();
     } else {
-      setLetters("");
+      setLetters(statementOff);
     }
   }, [on, lettersIndex]);
 

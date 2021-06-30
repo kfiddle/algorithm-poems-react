@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+
+import useDetailSpeller from "../../hooks/useDetailSpeller";
+
 import emailjs from "emailjs-com";
 
 import styles from "./ContactFormPanel.module.css";
@@ -14,8 +17,13 @@ const ContactFormPanel = () => {
     emailSpot: -100,
     phoneSpot: 100,
   });
+
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
   const [foneNumber, setfoneNumber] = useState("");
+  // const [buttonText, setButtonText] = useState("Submit");
+  const [emptySubmission, setEmptySubmission] = useState(false);
+
+  const buttonText = useDetailSpeller(emptySubmission, "Nice try...", "Submit");
 
   const name = useRef();
   const email = useRef();
@@ -69,6 +77,19 @@ const ContactFormPanel = () => {
       message: message.current.value,
     };
 
+    let empty = true;
+
+    for (let key in contactInfo) {
+      if (contactInfo[key].length > 0) {
+        empty = false;
+      }
+    }
+
+    if (empty === true) {
+      setEmptySubmission(true);
+      return;
+    }
+
     emailjs.send(serviceId, templateId, contactInfo, userId);
   };
 
@@ -78,7 +99,10 @@ const ContactFormPanel = () => {
       style={{ transform: `translateY(${contactPanelPlace}vh)` }}
     >
       <div className={styles.contactBoxHeader}>
-        <h2>Feel free to share as much information as you'd like here</h2>
+        <h2>
+          Feel free to share as much, (or as little), information as you'd like
+          here
+        </h2>
       </div>
 
       <div className={styles.inputsBox}>
@@ -108,7 +132,7 @@ const ContactFormPanel = () => {
       <textarea className={styles.messageInput} ref={message}></textarea>
 
       <button className={styles.submitButton} onClick={submitInfo}>
-        <h2>Submit</h2>
+        <h2>{buttonText}</h2>
       </button>
 
       <div
