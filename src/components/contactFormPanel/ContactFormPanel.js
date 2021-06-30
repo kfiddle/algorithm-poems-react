@@ -37,16 +37,27 @@ const ContactFormPanel = () => {
   }, []);
 
   const formatNumber = (event) => {
-    console.log(event);
-
-    if (isNaN(event.nativeEvent.data)) {
+    if (isNaN(event.nativeEvent.data) || event.target.value.length === 13) {
       return;
     }
 
-    if (event.target.value.length === 3) {
-      setfoneNumber((previous) => event.target.value + '-');
+    if (
+      (event.target.value.length === 3 || event.target.value.length === 7) &&
+      !isNaN(event.nativeEvent.data)
+    ) {
+      setfoneNumber((previous) => event.target.value + "-");
     } else {
       setfoneNumber((previous) => event.target.value);
+    }
+  };
+
+  const checkForDelete = (event) => {
+    console.log(event);
+    if (
+      event.code === "Backspace" &&
+      foneNumber[foneNumber.length - 1] === "-"
+    ) {
+      setfoneNumber((previous) => previous.slice(0, -1));
     }
   };
 
@@ -89,6 +100,7 @@ const ContactFormPanel = () => {
           placeholder={"Phone Number"}
           style={{ transform: `translateX(${inputPlaces.phoneSpot}vw)` }}
           onChange={formatNumber}
+          onKeyDown={checkForDelete}
           value={foneNumber}
         ></input>
       </div>
