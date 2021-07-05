@@ -56,10 +56,18 @@
 }
 
 .linkText {
-  color: rgb(156, 23, 90);
-  font-size: 1.5rem;
+  color: rgb(199, 34, 117);
+  font-size: 1.7rem;
   font-weight: 800;
-  margin: 3rem 0 
+  letter-spacing: 0.05em;
+
+  margin: 5rem 0 ;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+
 }
 
 

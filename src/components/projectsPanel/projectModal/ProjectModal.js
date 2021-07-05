@@ -53,7 +53,7 @@ const ProjectModal = (props) => {
             {description}
           </h3>
           <p className={styles.languagesText}>{languages}</p>
-          <p className={styles.linkText}>{link}</p>
+          <a href={link} target={'_blank'}><p className={styles.linkText}>visit site...</p></a>
         </div>
         <div className={styles.slideDiv}>
           <div className={styles.slideImageDiv}>

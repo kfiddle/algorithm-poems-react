@@ -28,7 +28,7 @@ const projects = [
       ],
       location: 'second',
       languages: 'Javascript, Java Spring Boot',
-      link:'soon to be a link'
+      link:'https://aqueous-ridge-03205.herokuapp.com/'
 
     },
     {
