@@ -24,7 +24,7 @@ const useDetailSpeller = (on, statementOn, statementOff) => {
     } else {
       setLetters(statementOff);
     }
-  }, [on, lettersIndex]);
+  }, [on, lettersIndex, statementOff, statementOn]);
 
   return letters;
 };
