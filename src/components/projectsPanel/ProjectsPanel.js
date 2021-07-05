@@ -23,7 +23,7 @@ const projects = [
       description:
         "An app designed for a genealogist. Perhaps your ancestor inherited land in 1750? Or was paid by the Continental Army per mile of marching? This will help you do a few necessary calculations with an unfamiliar currency.",
       carousel: [
-        "images/slides/colonialCurrencySlide1.jpg",
+        "images/slides/ColonialCurrencySlide1.jpg",
         "images/slides/colonialSlide2.jpg",
         'images/slides/colonial-calculator4.jpg',
 
