@@ -32,6 +32,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   margin-left: 5%;
+  padding-left: 1rem;
   height: 75%;
   width: 90%;
 }
@@ -45,8 +46,22 @@
   font-size: 1.5rem;
   line-height: 2em;
   letter-spacing: 0.15em;
-  margin: 1rem;
 }
+
+.languagesText {
+  color:aquamarine;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.linkText {
+  color: rgb(156, 23, 90);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 3rem 0 
+}
+
 
 .slideDiv {
   position: relative;

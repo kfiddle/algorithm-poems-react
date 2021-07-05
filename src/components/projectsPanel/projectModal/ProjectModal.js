@@ -6,10 +6,12 @@ const ProjectModal = (props) => {
   const [modalPlace, setModalPlace] = useState(100);
   const [slideIndex, setSlideIndex] = useState(0);
 
-  let image = props.whichProject.carousel[slideIndex];
+  const {description, carousel, location, languages, link} = props.whichProject;
+
+  let image = carousel[slideIndex];
 
   const moveSlides = (direction) => {
-    let length = props.whichProject.carousel.length;
+    let length = carousel.length;
 
     if (direction === "forward") {
       slideIndex === length - 1
@@ -21,7 +23,7 @@ const ProjectModal = (props) => {
         : setSlideIndex(slideIndex - 1);
     }
 
-    image = props.whichProject.carousel[slideIndex];
+    image = carousel[slideIndex];
   };
 
   const closeModal = () => {
@@ -48,8 +50,10 @@ const ProjectModal = (props) => {
       <div className={styles.innerModalDiv}>
         <div className={styles.descriptionDiv}>
           <h3 className={styles.descriptionText}>
-            {props.whichProject.description}
+            {description}
           </h3>
+          <p className={styles.languagesText}>{languages}</p>
+          <p className={styles.linkText}>{link}</p>
         </div>
         <div className={styles.slideDiv}>
           <div className={styles.slideImageDiv}>

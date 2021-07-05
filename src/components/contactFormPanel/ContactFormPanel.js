@@ -20,7 +20,6 @@ const ContactFormPanel = () => {
 
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
   const [foneNumber, setfoneNumber] = useState("");
-  // const [buttonText, setButtonText] = useState("Submit");
   const [emptySubmission, setEmptySubmission] = useState(false);
 
   const buttonText = useDetailSpeller(emptySubmission, "Nice try...", "Submit");
@@ -59,8 +58,12 @@ const ContactFormPanel = () => {
     }
   };
 
+  const submissionCheck = (event) => {
+    setEmptySubmission(false);
+  };
+
   const checkForDelete = (event) => {
-    console.log(event);
+    setEmptySubmission(false);
     if (
       event.code === "Backspace" &&
       foneNumber[foneNumber.length - 1] === "-"
@@ -111,12 +114,14 @@ const ContactFormPanel = () => {
           className={styles.nameInput}
           placeholder={"Name"}
           style={{ transform: `translateX(${inputPlaces.nameSpot}vw)` }}
+          onKeyDown={submissionCheck}
         ></input>
         <input
           ref={email}
           className={styles.emailInput}
           placeholder={"Email"}
           style={{ transform: `translateX(${inputPlaces.emailSpot}vw)` }}
+          onKeyDown={submissionCheck}
         ></input>
         <input
           ref={phoneNumber}
@@ -129,7 +134,11 @@ const ContactFormPanel = () => {
         ></input>
       </div>
 
-      <textarea className={styles.messageInput} ref={message}></textarea>
+      <textarea
+        className={styles.messageInput}
+        ref={message}
+        onKeyDown={submissionCheck}
+      ></textarea>
 
       <button className={styles.submitButton} onClick={submitInfo}>
         <h2>{buttonText}</h2>
