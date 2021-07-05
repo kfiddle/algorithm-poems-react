@@ -10,8 +10,13 @@ const userId = "user_ziX5oSLNJRahUxs9dz2xC";
 const serviceId = "service_whc7i1l";
 const templateId = "template_xhux42i";
 
+const greeting = " Feel free to share as much, (or as little), information as you'd like here";
+
+const defaultFormValues = { name: "", email: "", fone: "", message: "" };
+
 const ContactFormPanel = () => {
   const [contactPanelPlace, setContactPanelPlace] = useState(100);
+  const [formValues, setFormValues] = useState(defaultFormValues);
   const [inputPlaces, setInputPlaces] = useState({
     nameSpot: 100,
     emailSpot: -100,
@@ -19,8 +24,14 @@ const ContactFormPanel = () => {
   });
 
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
+
+  const [nameInput, setNameInput] = useState("");
   const [foneNumber, setfoneNumber] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [messageInput, setMessageInput] = useState("");
+
   const [emptySubmission, setEmptySubmission] = useState(false);
+  const [headerText, setHeaderText] = useState(greeting);
 
   const buttonText = useDetailSpeller(emptySubmission, "Nice try...", "Submit");
 
@@ -31,7 +42,7 @@ const ContactFormPanel = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setContactPanelPlace(20);
+      setContactPanelPlace(15);
     }, 50);
 
     setTimeout(() => {
@@ -42,6 +53,10 @@ const ContactFormPanel = () => {
       setMyContactInfoPlace(0);
     }, 500);
   }, []);
+
+  const typedName = event => setNameInput(event.target.value);
+  const typedEmail = event => setEmailInput(event.target.value);
+  const typedMessage = event => setMessageInput(event.target.value);
 
   const formatNumber = (event) => {
     if (isNaN(event.nativeEvent.data) || event.target.value.length === 13) {
@@ -94,6 +109,14 @@ const ContactFormPanel = () => {
     }
 
     emailjs.send(serviceId, templateId, contactInfo, userId);
+
+    setNameInput('');
+    setEmailInput('');
+    setfoneNumber("");
+    setMessageInput('');
+
+    setHeaderText('Thank you for reaching out!')
+    
   };
 
   return (
@@ -102,10 +125,7 @@ const ContactFormPanel = () => {
       style={{ transform: `translateY(${contactPanelPlace}vh)` }}
     >
       <div className={styles.contactBoxHeader}>
-        <h2>
-          Feel free to share as much, (or as little), information as you'd like
-          here
-        </h2>
+        <h2>{headerText}</h2>
       </div>
 
       <div className={styles.inputsBox}>
@@ -115,6 +135,8 @@ const ContactFormPanel = () => {
           placeholder={"Name"}
           style={{ transform: `translateX(${inputPlaces.nameSpot}vw)` }}
           onKeyDown={submissionCheck}
+          onChange={typedName}
+          value={nameInput}
         ></input>
         <input
           ref={email}
@@ -122,6 +144,8 @@ const ContactFormPanel = () => {
           placeholder={"Email"}
           style={{ transform: `translateX(${inputPlaces.emailSpot}vw)` }}
           onKeyDown={submissionCheck}
+          onChange={typedEmail}
+          value={emailInput}
         ></input>
         <input
           ref={phoneNumber}
@@ -138,6 +162,8 @@ const ContactFormPanel = () => {
         className={styles.messageInput}
         ref={message}
         onKeyDown={submissionCheck}
+        onChange={typedMessage}
+        value={messageInput}
       ></textarea>
 
       <button className={styles.submitButton} onClick={submitInfo}>
