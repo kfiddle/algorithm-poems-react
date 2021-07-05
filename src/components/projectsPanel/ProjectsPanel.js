@@ -25,6 +25,8 @@ const projects = [
       carousel: [
         "images/slides/colonialCurrencySlide1.jpg",
         "images/slides/colonialSlide2.jpg",
+        'images/slides/colonial-calculator4.jpg',
+
       ],
       location: 'second',
       languages: 'Javascript, Java Spring Boot',
