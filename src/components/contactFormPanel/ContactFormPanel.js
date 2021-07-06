@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useReducer } from "react";
 
 import useDetailSpeller from "../../hooks/useDetailSpeller";
 
@@ -10,9 +10,28 @@ const userId = "user_ziX5oSLNJRahUxs9dz2xC";
 const serviceId = "service_whc7i1l";
 const templateId = "template_xhux42i";
 
-const greeting = " Feel free to share as much, (or as little), information as you'd like here";
+const greeting =
+  " Feel free to share as much, (or as little), information as you'd like here";
 
 const defaultFormValues = { name: "", email: "", fone: "", message: "" };
+
+const initialFormState = { name:'', email: '', message:''};
+
+const inputReducer = (state, action) => {
+  if (action.type === 'name') {
+    console.log('howdy')
+    return {...state, name: action.name}
+  } else if (action.type === 'email') {
+    return {...state, email: action.email}
+  } else if(action.type === 'message') {
+    return { ...state, message: action.message}
+  } else {
+    return initialFormState 
+  }
+};
+
+
+
 
 const ContactFormPanel = () => {
   const [contactPanelPlace, setContactPanelPlace] = useState(100);
@@ -24,11 +43,9 @@ const ContactFormPanel = () => {
   });
 
   const [contactInfoPlace, setMyContactInfoPlace] = useState(100);
-
-  const [nameInput, setNameInput] = useState("");
   const [foneNumber, setfoneNumber] = useState("");
-  const [emailInput, setEmailInput] = useState("");
-  const [messageInput, setMessageInput] = useState("");
+
+  const [inputs, setInputDispatcher] = useReducer(inputReducer, initialFormState);
 
   const [emptySubmission, setEmptySubmission] = useState(false);
   const [headerText, setHeaderText] = useState(greeting);
@@ -54,9 +71,9 @@ const ContactFormPanel = () => {
     }, 500);
   }, []);
 
-  const typedName = event => setNameInput(event.target.value);
-  const typedEmail = event => setEmailInput(event.target.value);
-  const typedMessage = event => setMessageInput(event.target.value);
+  const typedName = event => setInputDispatcher({type: 'name', name: event.target.value})
+  const typedEmail = event => setInputDispatcher({type: 'email', email: event.target.value})
+  const typedMessage = event => setInputDispatcher({type: 'message', message: event.target.value})
 
   const formatNumber = (event) => {
     if (isNaN(event.nativeEvent.data) || event.target.value.length === 13) {
@@ -110,13 +127,10 @@ const ContactFormPanel = () => {
 
     emailjs.send(serviceId, templateId, contactInfo, userId);
 
-    setNameInput('');
-    setEmailInput('');
     setfoneNumber("");
-    setMessageInput('');
+    setInputDispatcher({type: 'reset'});
 
-    setHeaderText('Thank you for reaching out!')
-    
+    setHeaderText("Thank you for reaching out!");
   };
 
   return (
@@ -136,7 +150,9 @@ const ContactFormPanel = () => {
           style={{ transform: `translateX(${inputPlaces.nameSpot}vw)` }}
           onKeyDown={submissionCheck}
           onChange={typedName}
-          value={nameInput}
+          // value={nameInput}
+          value={inputs.name}
+
         ></input>
         <input
           ref={email}
@@ -145,7 +161,8 @@ const ContactFormPanel = () => {
           style={{ transform: `translateX(${inputPlaces.emailSpot}vw)` }}
           onKeyDown={submissionCheck}
           onChange={typedEmail}
-          value={emailInput}
+          // value={emailInput}
+          value={inputs.email}
         ></input>
         <input
           ref={phoneNumber}
@@ -163,7 +180,8 @@ const ContactFormPanel = () => {
         ref={message}
         onKeyDown={submissionCheck}
         onChange={typedMessage}
-        value={messageInput}
+        // value={messageInput}
+        value={inputs.message}
       ></textarea>
 
       <button className={styles.submitButton} onClick={submitInfo}>
