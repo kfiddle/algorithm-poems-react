@@ -39,16 +39,16 @@ const projects = [
       carousel: ["images/slides/apexSlide1.jpg"],
       location: 'third',
       languages: 'Java, Java Spring Boot, Javascript',
-      link:'soon to be a link'
+      link:''
 
     },
 
     {
-      description: "a super DUPER cool thing",
-      carousel: ["images/slides/apexSlide1.jpg"],
+      description: "A full-stack database to manage foundation contributions and associated expenses for a local non-profit",
+      carousel: ["images/slides/menorah1.jpg", "images/slides/menorah2.jpg"],
       location: 'fourth',
-      languages: 'React, everything else',
-      link:'soon to be a link'
+      languages: 'React, Java, Spring Boot',
+      link:''
 
     },
   ];

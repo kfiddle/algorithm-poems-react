@@ -40,6 +40,7 @@
   top: 50%;
   left: 50%;
   background: gainsboro;
+  background-image: url("../../assets/menorah2.jpg");
   transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
