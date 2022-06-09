@@ -17,6 +17,7 @@ const ProjectBox1 = (props) => {
         backgroundImage: `url(${frontImage})`,
         transition: `${transition} cubic-bezier(0.4, 0, 0.4, 1)`,
         transform: `translateY(${position}rem)`,
+        backgroundPosition: "0 83%", //careful, this really only applies to sky pond, but it's not killing anything
       }}
     ></div>
   );

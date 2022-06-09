@@ -106,7 +106,6 @@ const ContactFormPanel = () => {
       message: inputs.message,
     };
 
-    console.log(contactInfo.phoneNumber);
 
     if (
       contactInfo.fullName.length === 0 &&
@@ -175,7 +174,7 @@ const ContactFormPanel = () => {
       ></textarea>
 
       <button className={styles.submitButton} onClick={submitInfo}>
-        <h2>{buttonText}</h2>
+        {buttonText}
       </button>
 
       <div

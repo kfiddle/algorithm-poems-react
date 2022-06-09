@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
-  background: #cbd1d2;
+  /* background: #cbd1d2; */
   background: linear-gradient(to Right, #cbd1d2, #07124d);
 }
 

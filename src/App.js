@@ -3,27 +3,34 @@ import { Fragment, useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import PennyFarthing from "./components/pennyFarthing/PennyFarthing";
 import SideBar from "./components/sideBar/SideBar";
-import AboutPanel from './components/aboutPanel/AboutPanel';
+import AboutPanel from "./components/aboutPanel/AboutPanel";
 import ContactFormPanel from "./components/contactFormPanel/ContactFormPanel";
 import ProjectsPanel from "./components/projectsPanel/ProjectsPanel";
 
 import ProjectsPanel1 from "./components/projectsPanel/panel1/ProjectsPanel1";
 
 import "./App.css";
+import Background from "./components/UI/Background";
 
-const ABOUTME = 'About Me';
-const CURRENTPROJECTS = 'Current Projects';
-const CONTACT = 'Contact Me';
+const ABOUTME = "About Me";
+const CURRENTPROJECTS = "Current Projects";
+const CONTACT = "Contact Me";
 
 const menuList = [ABOUTME, CURRENTPROJECTS, CONTACT];
 
-const choiceObject = {'About Me': false, 'Current Projects': false, 'Contact Me': false}
+const choiceObject = {
+  "About Me": false,
+  "Current Projects": false,
+  "Contact Me": false,
+};
+
 
 function App() {
   const [bikeRiding, setBikeRiding] = useState(true);
   const [stripesClicked, setStripesClicked] = useState(false);
   const [choices, setChoices] = useState(choiceObject);
 
+  const [clickedChoice, setClickedChoice] = useState('');
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,37 +39,49 @@ function App() {
   }, []);
 
   const choiceHandler = (chosen) => {
-    let tempChoices = { ...choiceObject};
+
+    let tempChoices = { ...choiceObject };
     for (let choice in tempChoices) {
       if (choice === chosen) {
         tempChoices[choice] = true;
       }
     }
-  setChoices(tempChoices);
-  setStripesClicked(false)
-}
-     
+    setClickedChoice(chosen);
+    setChoices(tempChoices);
+    setStripesClicked(false);
+  };
 
   const stripesHandler = () => {
     setStripesClicked(!stripesClicked);
-    console.log(stripesClicked)
+    setClickedChoice('');
 
     if (!stripesClicked) {
       setChoices(choiceObject);
     }
-
-  
   };
 
   return (
     <Fragment>
-      <Header stripesHandler={stripesHandler} stripesClicked={stripesClicked} />
-      <SideBar menuList={menuList} choice={choiceHandler} visible={stripesClicked} />
-      {bikeRiding && <PennyFarthing />}
-      {choices['About Me'] && <AboutPanel />}
-      {/* {choices['Current Projects'] && <ProjectsPanel />} */}
-      {choices['Current Projects'] && <ProjectsPanel1 />}
-      {choices['Contact Me'] && <ContactFormPanel />}
+      <Background>
+        <Header
+          stripesHandler={stripesHandler}
+          stripesClicked={stripesClicked}
+        />
+        <SideBar
+          menuList={menuList}
+          choice={choiceHandler}
+          visible={stripesClicked}
+        />
+        {bikeRiding && <PennyFarthing />}
+
+        {clickedChoice === ABOUTME && <AboutPanel />}
+
+        {/* {choices['Current Projects'] && <ProjectsPanel />} */}
+        {clickedChoice === CURRENTPROJECTS && <ProjectsPanel1 />}
+
+        {clickedChoice === CONTACT && <ContactFormPanel />}
+
+      </Background>
     </Fragment>
   );
 }
