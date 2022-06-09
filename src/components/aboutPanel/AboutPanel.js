@@ -5,33 +5,43 @@ import headShot from "../../assets/headShot.JPG";
 import styles from "./AboutPanel.module.css";
 
 const AboutPanel = (props) => {
-    const [leftCurtainPlace, setLeftCurtainPlace] = useState(-52);
-    const [rightCurtainPlace, setRightCurtainPlace] = useState(70);
+  const [leftCurtainPlace, setLeftCurtainPlace] = useState(-52);
+  const [rightCurtainPlace, setRightCurtainPlace] = useState(70);
 
-    const [imageFilter, setImageFilter] = useState(300);
-    const [leftCurtainOpacity, setLeftCurtainOpacity] = useState(0.2);
+  const [imageFilter, setImageFilter] = useState(300);
+  const [leftCurtainOpacity, setLeftCurtainOpacity] = useState(0.2);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLeftCurtainPlace(5);
-            setRightCurtainPlace(0);
-            
-        }, 10)
+  useEffect(() => {
+    setTimeout(() => {
+      setLeftCurtainPlace(5);
+      setRightCurtainPlace(0);
+    }, 10);
 
-        setTimeout(() => {
-          setLeftCurtainOpacity(1.0);
-          setImageFilter(100)
-        }, 300)
-
-    }, [])
-
+    setTimeout(() => {
+      setLeftCurtainOpacity(1.0);
+      setImageFilter(100);
+    }, 300);
+  }, []);
 
   return (
     <Fragment>
-      <div className={styles.headShotCurtain} style={{transform : `translateX(${leftCurtainPlace}vw)`, opacity: leftCurtainOpacity}}>
-        <img src={headShot} className={styles.headShot} style={{filter: `brightness(${imageFilter}%)`}}></img>
+      <div
+        className={styles.headShotCurtain}
+        style={{
+          transform: `translateX(${leftCurtainPlace}vw)`,
+          opacity: leftCurtainOpacity,
+        }}
+      >
+        <img
+          src={headShot}
+          className={styles.headShot}
+          style={{ filter: `brightness(${imageFilter}%)` }}
+        ></img>
       </div>
-      <div className={styles.storyCurtain} style={{transform : `translateX(${rightCurtainPlace}vw)`}}>
+      <div
+        className={styles.storyCurtain}
+        style={{ transform: `translateX(${rightCurtainPlace}vw)` }}
+      >
         <div className={`${styles.storyBlock} ${styles.topThirdStory}`}>
           <p>
             Until recently, I spent each day as a professional violin player
@@ -44,16 +54,14 @@ const AboutPanel = (props) => {
         </div>
         <div className={`${styles.storyBlock} ${styles.middleThirdStory}`}>
           <p>
-            These days, I design websites from scratch. I love building my own
-            front-end components and also connecting them to a back-end in
-            Java...
+            These days, I love to design apps and websites. My front-ends are
+            built in React, and I connect these to a back-end in Java, ...
           </p>
         </div>
         <div className={`${styles.storyBlock} ${styles.bottomThirdStory}`}>
           <p>
-            ...and although I love exploring as
-            much as I can in libraries like React, let's not forget that much of 
-            front-end skill is still rooted in plain, old, vanilla Javascript.
+            ...and I've discovered that the worlds of classical music and
+            software development aren't actually so different.
           </p>
         </div>
       </div>

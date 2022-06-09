@@ -28,11 +28,11 @@ const WarrantOfficerStripes = (props) => {
         }
 
         if (counter === 0) {
-          setBarColors({ bar1: "lightblue", bar2: "#5a1616", bar3: "#5a1616" });
+          setBarColors({ bar1: "gold", bar2: "#5a1616", bar3: "#5a1616" });
         } else if (counter === 1) {
-          setBarColors({ bar1: "#5a1616", bar2: "lightblue", bar3: "#5a1616" });
+          setBarColors({ bar1: "#5a1616", bar2: "gold", bar3: "#5a1616" });
         } else {
-          setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "lightblue" });
+          setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "gold" });
         }
       } else {
         setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "#5a1616" });

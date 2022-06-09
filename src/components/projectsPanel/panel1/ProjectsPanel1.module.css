@@ -1,0 +1,22 @@
+.outerContainer {
+  background: rebeccapurple;
+  margin-top: 20vh;
+  margin-left: 10%;
+  width: 80%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  animation: slide-in 0.5s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+}

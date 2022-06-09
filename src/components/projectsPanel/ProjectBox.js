@@ -27,7 +27,7 @@ const ProjectBox = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setBoxSpot(0);
+      setBoxSpot(10);
     }, 10);
   }, []);
 

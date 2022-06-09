@@ -7,6 +7,8 @@ import AboutPanel from './components/aboutPanel/AboutPanel';
 import ContactFormPanel from "./components/contactFormPanel/ContactFormPanel";
 import ProjectsPanel from "./components/projectsPanel/ProjectsPanel";
 
+import ProjectsPanel1 from "./components/projectsPanel/panel1/ProjectsPanel1";
+
 import "./App.css";
 
 const ABOUTME = 'About Me';
@@ -58,7 +60,8 @@ function App() {
       <SideBar menuList={menuList} choice={choiceHandler} visible={stripesClicked} />
       {bikeRiding && <PennyFarthing />}
       {choices['About Me'] && <AboutPanel />}
-      {choices['Current Projects'] && <ProjectsPanel />}
+      {/* {choices['Current Projects'] && <ProjectsPanel />} */}
+      {choices['Current Projects'] && <ProjectsPanel1 />}
       {choices['Contact Me'] && <ContactFormPanel />}
     </Fragment>
   );
