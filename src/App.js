@@ -18,19 +18,10 @@ const CONTACT = "Contact Me";
 
 const menuList = [ABOUTME, CURRENTPROJECTS, CONTACT];
 
-const choiceObject = {
-  "About Me": false,
-  "Current Projects": false,
-  "Contact Me": false,
-};
-
-
 function App() {
   const [bikeRiding, setBikeRiding] = useState(true);
   const [stripesClicked, setStripesClicked] = useState(false);
-  const [choices, setChoices] = useState(choiceObject);
-
-  const [clickedChoice, setClickedChoice] = useState('');
+  const [clickedChoice, setClickedChoice] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,33 +30,22 @@ function App() {
   }, []);
 
   const choiceHandler = (chosen) => {
-
-    let tempChoices = { ...choiceObject };
-    for (let choice in tempChoices) {
-      if (choice === chosen) {
-        tempChoices[choice] = true;
-      }
-    }
     setClickedChoice(chosen);
-    setChoices(tempChoices);
     setStripesClicked(false);
   };
 
   const stripesHandler = () => {
     setStripesClicked(!stripesClicked);
-    setClickedChoice('');
-
-    if (!stripesClicked) {
-      setChoices(choiceObject);
-    }
+    setClickedChoice("");
   };
 
   return (
     <Fragment>
-      <Background>
+      <Background panel={clickedChoice}>
         <Header
           stripesHandler={stripesHandler}
           stripesClicked={stripesClicked}
+          panel={clickedChoice}
         />
         <SideBar
           menuList={menuList}
@@ -80,7 +60,6 @@ function App() {
         {clickedChoice === CURRENTPROJECTS && <ProjectsPanel1 />}
 
         {clickedChoice === CONTACT && <ContactFormPanel />}
-
       </Background>
     </Fragment>
   );
