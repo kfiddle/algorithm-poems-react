@@ -68,41 +68,36 @@ a {
 }
 
 .slideDiv {
-  position: relative;
+  /* position: relative;
+  display: flex; */
 }
 
 .slideImageDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  /* width: 80%; */
 }
 
 .image {
-  max-width: 90%;
+  max-width: 95%;
+  max-height: 50%;
   box-shadow: 4px 4px 3px #312f42;
 }
 
-.carousel_buttons {
-  position: absolute;
-  top: 70%;
+.arrowsDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 95%; /* 95 to match the image max width */
+  padding-top: 2rem;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: rgb(75, 85, 100);
   cursor: pointer;
 }
 
-.arrow_left {
-  left: 30%;
-  background-color: transparent;
-  border-bottom: 3rem solid transparent;
-  border-top: 3rem solid transparent;
-  border-right: 1.5rem solid white;
-  border-left: none;
-}
-
-.arrow_right {
-  right: 13%;
-  background-color: transparent;
-  border-bottom: 3rem solid transparent;
-  border-top: 3rem solid transparent;
-  border-left: 1.5rem solid white;
-  border-right: none;
+.arrow:hover {
+  color: rgb(85, 141, 225);
 }

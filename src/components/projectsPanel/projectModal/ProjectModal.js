@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+
 import styles from "./ProjectModal.module.css";
 
 const ProjectModal = (props) => {
   const [modalPlace, setModalPlace] = useState(100);
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const {description, carousel, location, languages, link} = props.whichProject;
+  const { description, carousel, location, languages, link } =
+    props.whichProject;
 
   let image = carousel[slideIndex];
 
@@ -49,9 +52,7 @@ const ProjectModal = (props) => {
       </button>
       <div className={styles.innerModalDiv}>
         <div className={styles.descriptionDiv}>
-          <h3 className={styles.descriptionText}>
-            {description}
-          </h3>
+          <h3 className={styles.descriptionText}>{description}</h3>
           <p className={styles.languagesText}>{languages}</p>
           {/* <a href={link} target={'_blank'}><p className={styles.linkText}>visit site...</p></a> */}
         </div>
@@ -60,20 +61,26 @@ const ProjectModal = (props) => {
             <img src={image} className={styles.image} />
           </div>
 
-          
+          <div className={styles.arrowsDiv}>
+            <div>
+              <FaAngleLeft
+                className={styles.arrow}
+                onClick={() => {
+                  moveSlides("back");
+                }}
+              />
+            </div>
+
+            <div>
+              <FaAngleRight
+                className={styles.arrow}
+                onClick={() => {
+                  moveSlides("forward");
+                }}
+              />
+            </div>
+          </div>
         </div>
-        <div
-            className={`${styles.carousel_buttons} ${styles.arrow_left}`}
-            onClick={() => {
-              moveSlides("back");
-            }}
-          ></div>
-          <div
-            className={`${styles.carousel_buttons} ${styles.arrow_right}`}
-            onClick={() => {
-              moveSlides("forward");
-            }}
-          ></div>
       </div>
     </div>
   );
