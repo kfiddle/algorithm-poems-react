@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "./WarrantOfficerStripes.module.css";
 
 const WarrantOfficerStripes = (props) => {
-
   const [counter, setCounter] = useState(0);
 
   const [bar1, setBar1] = useState("");
@@ -10,40 +9,37 @@ const WarrantOfficerStripes = (props) => {
   const [bar3, setBar3] = useState("");
 
   const [spin, setSpin] = useState([0, 0, 0]);
-  const [barColors, setBarColors] = useState({
-    bar1: "#5a1616",
-    bar2: "#5a1616",
-    bar3: "#5a1616",
-  });
+  // const [barColors, setBarColors] = useState({
+  //   bar1: "#5a1616",
+  //   bar2: "#5a1616",
+  //   bar3: "#5a1616",
+  // });
 
   const [clicked, setClicked] = useState(false);
 
-  useEffect(() => {
-    const ourTimer = setInterval(() => {
-      if (!props.stripesClicked) {
-        if (counter < 2) {
-          setCounter((previousCount) => previousCount + 1);
-        } else {
-          setCounter(0);
-        }
+  // useEffect(() => {
+  //   const ourTimer = setInterval(() => {
+  //     if (!props.stripesClicked) {
+  //       if (counter < 2) {
+  //         setCounter((previousCount) => previousCount + 1);
+  //       } else {
+  //         setCounter(0);
+  //       }
 
-        if (counter === 0) {
-          setBarColors({ bar1: "gold", bar2: "#5a1616", bar3: "#5a1616" });
-        } else if (counter === 1) {
-          setBarColors({ bar1: "#5a1616", bar2: "gold", bar3: "#5a1616" });
-        } else {
-          setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "gold" });
-        }
-      } else {
-        setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "#5a1616" });
-      }
-    }, 300);
+  //       if (counter === 0) {
+  //         setBarColors({ bar1: "gold", bar2: "#5a1616", bar3: "#5a1616" });
+  //       } else if (counter === 1) {
+  //         setBarColors({ bar1: "#5a1616", bar2: "gold", bar3: "#5a1616" });
+  //       } else {
+  //         setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "gold" });
+  //       }
+  //     } else {
+  //       setBarColors({ bar1: "#5a1616", bar2: "#5a1616", bar3: "#5a1616" });
+  //     }
+  //   }, 300);
 
-
-
-    return () => clearInterval(ourTimer);
-  }, [props.stripesClicked, barColors, setBarColors, counter]);
-
+  //   return () => clearInterval(ourTimer);
+  // }, [props.stripesClicked, barColors, setBarColors, counter]);
 
   const hovering = (up) => {
     setTimeout(() => {
@@ -96,31 +92,34 @@ const WarrantOfficerStripes = (props) => {
       }}
       onClick={stripesClicked}
     >
-      <div className={styles.bars}>
-        <span
-          className={`${styles.bar} ${styles[bar1]}`}
-          style={{
-            top: "10px",
-            transform: clicked ? `rotate(${spin[0]}turn)` : "",
-            backgroundColor: barColors.bar1,
-          }}
-        ></span>
-        <span
-          className={`${styles.bar} ${styles[bar2]}`}
-          style={{
-            top: "26px",
-            transform: clicked ? `rotate(${spin[1]}turn)` : "",
-            backgroundColor: barColors.bar2,
-          }}
-        ></span>
-        <span
-          className={`${styles.bar} ${styles[bar3]}`}
-          style={{
-            top: "41px",
-            transform: clicked ? `rotate(${spin[2]}turn)` : "",
-            backgroundColor: barColors.bar3,
-          }}
-        ></span>
+      <div className={styles.barsAndLabel}>
+        <div className={styles.bars}>
+          <span
+            className={`${styles.bar} ${styles[bar1]}`}
+            style={{
+              top: "10px",
+              transform: clicked ? `rotate(${spin[0]}turn)` : "",
+              // backgroundColor: barColors.bar1,
+            }}
+          ></span>
+          <span
+            className={`${styles.bar} ${styles[bar2]}`}
+            style={{
+              top: "26px",
+              transform: clicked ? `rotate(${spin[1]}turn)` : "",
+              // backgroundColor: barColors.bar2,
+            }}
+          ></span>
+          <span
+            className={`${styles.bar} ${styles[bar3]}`}
+            style={{
+              top: "41px",
+              transform: clicked ? `rotate(${spin[2]}turn)` : "",
+              // backgroundColor: barColors.bar3,
+            }}
+          ></span>
+        </div>
+        <h3 className={styles.menuLabel}>HOME</h3>
       </div>
     </div>
   );
