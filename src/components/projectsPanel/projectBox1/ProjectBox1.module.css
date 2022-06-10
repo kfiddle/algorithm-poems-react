@@ -5,4 +5,11 @@
   cursor: pointer;
 }
 
-
+.innerProjectHeader {
+  color: gold;
+  font-weight: 900;
+  font-size: 2.1rem;
+  position: absolute;
+  top: 60%;
+  left: 5%;
+}

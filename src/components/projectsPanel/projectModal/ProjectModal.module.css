@@ -1,8 +1,7 @@
 .projectModal {
-  position: relative;
+  position: fixed;
   flex-direction: column;
   background: white;
-  /* background: linear-gradient(to Left, black, #5a3939); */
   background: linear-gradient(to Left, black, black, black, #43415a);
 
   width: 80vw;
@@ -84,6 +83,7 @@ a {
 
 .image {
   max-width: 90%;
+  box-shadow: 8px 8px 3px 3px #312f42;
 }
 
 .carousel_buttons {

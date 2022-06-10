@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import ProjectBox1 from "../projectBox1/ProjectBox1";
 import styles from "./ProjectsPanel1.module.css";
 
@@ -6,13 +8,20 @@ import skyPondImage from "../../../assets/skypond.jpg";
 import colonialImage from "../../../assets/colonialCurrencyShot.jpg";
 import menorahImage from "../../../assets/menorah2.jpg";
 
+import playerEntry from "../../../assets/orchestra-master/playerEntry.jpg";
+import possiblesTest from "../../../assets/orchestra-master/possiblesTest.jpg";
+import instrumentationForm from "../../../assets/orchestra-master/instrumentation.jpg";
+import autoFillHook from "../../../assets/orchestra-master/autoFill.jpg";
+
+import ProjectModal from "../projectModal/ProjectModal";
+
 const projects = [
   {
     description:
       "An app which manages the seating rosters for an Orchestra. One front-end client is the dashboard for managing the personnel, including the relational database for concerts, the library, all players, and seating rosters for each performance. A second front-end is the player's view. A player can login, reply, and view relevant performing information.",
     frontImage: orchImage,
     transition: "1.5s",
-    carousel: ["images/slides/apexSlide1.jpg"],
+    carousel: [playerEntry, possiblesTest, instrumentationForm, autoFillHook],
     location: "third",
     languages: "React, Java Spring Boot",
     link: "",
@@ -59,10 +68,34 @@ const projects = [
 ];
 
 const ProjectsPanel1 = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [clickedProject, setClickedProject] = useState("");
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const modalClicked = (project) => {
+    setModalOpen(true);
+    setClickedProject(project);
+  };
+
   const displayableProjects = projects.map((project) => (
-    <ProjectBox1 key={projects.indexOf(project)} project={project} />
+    <ProjectBox1
+      key={projects.indexOf(project)}
+      project={project}
+      clickHandler={modalClicked}
+    />
   ));
-  return <div className={styles.outerContainer}>{displayableProjects}</div>;
+  return (
+    <div className={styles.outerContainer}>
+      {displayableProjects}
+      {modalOpen && (
+        <ProjectModal closeModal={closeModal} whichProject={clickedProject} />
+      )}
+      ;
+    </div>
+  );
 };
 
 export default ProjectsPanel1;
