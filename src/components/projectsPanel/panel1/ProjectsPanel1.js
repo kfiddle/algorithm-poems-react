@@ -14,6 +14,8 @@ import instrumentationForm from "../../../assets/orchestra-master/instrumentatio
 import autoFillHook from "../../../assets/orchestra-master/autoFill.jpg";
 
 import ProjectModal from "../projectModal/ProjectModal";
+import ProjectModal1 from "../projectModal/ProjectModal1";
+import Modal from "../../UI/modal/Modal";
 
 const projects = [
   {
@@ -92,17 +94,10 @@ const ProjectsPanel1 = () => {
       {displayableProjects}
       {modalOpen && (
         <ProjectModal closeModal={closeModal} whichProject={clickedProject} />
+        // <ProjectModal1 closeModal={closeModal}>I am a test modal</ProjectModal1>
       )}
-      ;
     </div>
   );
 };
 
 export default ProjectsPanel1;
-
-{
-  /* <ProjectBox1 project={projects[0]} />
-      <ProjectBox1 project={projects[1]} />
-      <ProjectBox1 project={projects[2]} />
-      <ProjectBox1 project={projects[3]} /> */
-}

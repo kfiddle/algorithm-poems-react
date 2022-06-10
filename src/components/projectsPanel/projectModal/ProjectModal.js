@@ -35,7 +35,7 @@ const ProjectModal = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setModalPlace(10);
+      setModalPlace(0);
     }, 10);
   }, []);
 

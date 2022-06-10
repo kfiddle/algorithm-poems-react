@@ -15,7 +15,7 @@
     white,
     white,
     #708090,
-    hsl(19, 89%, 30%)
+    hsl(244, 9%, 32%)
   );
   transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
 }
@@ -43,7 +43,7 @@
   height: 25%;
   font-size: 1.5rem;
   font-weight: 700;
-  color: whitesmoke;
+  color: rgb(224, 232, 244);
   line-height: 1.8em;
   letter-spacing: 0.12em;
   padding: 0;
