@@ -1,6 +1,5 @@
-import { useState, useEffect, Fragment } from "react";
-
-import headShot from "../../assets/headShot.JPG";
+import { useState, useEffect, useContext, Fragment } from "react";
+import AllImages from "../../contexts/images-preload";
 
 import styles from "./AboutPanel.module.css";
 
@@ -10,6 +9,8 @@ const AboutPanel = (props) => {
 
   const [imageFilter, setImageFilter] = useState(300);
   const [leftCurtainOpacity, setLeftCurtainOpacity] = useState(0.2);
+
+  const { images } = useContext(AllImages);
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,7 +34,7 @@ const AboutPanel = (props) => {
         }}
       >
         <img
-          src={headShot}
+          src={images.headShot}
           className={styles.headShot}
           style={{ filter: `brightness(${imageFilter}%)` }}
         ></img>
