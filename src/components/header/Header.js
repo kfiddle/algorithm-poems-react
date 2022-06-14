@@ -22,6 +22,7 @@ const Header = (props) => {
     props.stripesHandler();
   };
 
+
   return (
     <header
       className={styles.header}
@@ -30,6 +31,7 @@ const Header = (props) => {
       <WarrantOfficerStripes
         stripesHandler={stripesClicked}
         stripesClicked={props.stripesClicked}
+        panel={panel}
       />
 
       <div className={styles.titleDiv}>

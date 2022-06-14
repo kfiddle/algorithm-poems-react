@@ -12,9 +12,9 @@ import ProjectsPanel1 from "./components/projectsPanel/panel1/ProjectsPanel1";
 import "./App.css";
 import Background from "./components/UI/Background";
 
-const ABOUTME = "About Me";
-const CURRENTPROJECTS = "Current Projects";
-const CONTACT = "Contact Me";
+const ABOUTME = "ABOUT ME";
+const CURRENTPROJECTS = "CURRENT PROJECTS";
+const CONTACT = "CONTACT";
 
 const menuList = [ABOUTME, CURRENTPROJECTS, CONTACT];
 
