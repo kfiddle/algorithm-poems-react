@@ -4,9 +4,20 @@ import ProjectBox1 from "../projectBox1/ProjectBox1";
 import styles from "./ProjectsPanel1.module.css";
 
 import orchImage from "../../../assets/orchestra-master/rosterSpots.jpg";
+
 import skyPondImage from "../../../assets/skypond.jpg";
+import skyPond1 from "../../../assets/skypond/skyPondSlide1.jpg";
+import skyPond2 from "../../../assets/skypond/skyPondSlide2.jpg";
+import foneFormatter from "../../../assets/skypond/skyPondPhoneFormatter.jpg";
+
 import colonialImage from "../../../assets/colonialCurrencyShot.jpg";
-import menorahImage from "../../../assets/menorah2.jpg";
+
+import colonial1 from '../../../assets/colonial/ColonialCurrencySlide1.jpg';
+import colonial2 from '../../../assets/colonial/colonialSlide2.jpg';
+import colonialCalculator from '../../../assets/colonial/colonial-calculator4.jpg';
+
+import menorah1 from "../../../assets/menorahPark/menorah1.jpg";
+import menorah2 from "../../../assets/menorahPark/menorah2.jpg";
 
 import playerEntry from "../../../assets/orchestra-master/playerEntry.jpg";
 import possiblesTest from "../../../assets/orchestra-master/possiblesTest.jpg";
@@ -14,8 +25,6 @@ import instrumentationForm from "../../../assets/orchestra-master/instrumentatio
 import autoFillHook from "../../../assets/orchestra-master/autoFill.jpg";
 
 import ProjectModal from "../projectModal/ProjectModal";
-import ProjectModal1 from "../projectModal/ProjectModal1";
-import Modal from "../../UI/modal/Modal";
 
 const projects = [
   {
@@ -33,11 +42,7 @@ const projects = [
       "A collaboration with my friend Karin Samoviski. All animations and components are vanilla Javascript, and the back-end modeling and database are built in Java and Spring Boot. ",
     frontImage: skyPondImage,
     transition: "2s",
-    carousel: [
-      "images/slides/skyPondSlide1.jpg",
-      "images/slides/skyPondSlide2.jpg",
-      "images/slides/skyPondPhoneFormatter.jpg",
-    ],
+    carousel: [skyPond1, skyPond2, foneFormatter],
     location: "first",
     languages: "React, Java Spring Boot",
     link: "soon to be a link...",
@@ -48,9 +53,7 @@ const projects = [
     frontImage: colonialImage,
     transition: "1.5s",
     carousel: [
-      "images/slides/ColonialCurrencySlide1.jpg",
-      "images/slides/colonialSlide2.jpg",
-      "images/slides/colonial-calculator4.jpg",
+      colonial1, colonial2, colonialCalculator
     ],
     location: "second",
     languages: "Javascript, Java Spring Boot",
@@ -60,9 +63,9 @@ const projects = [
   {
     description:
       "A full-stack database to manage foundation contributions and associated expenses for a local non-profit",
-    frontImage: menorahImage,
+    frontImage: menorah2,
     transition: "2s",
-    carousel: ["images/slides/menorah1.jpg", "images/slides/menorah2.jpg"],
+    carousel: [menorah1],
     location: "fourth",
     languages: "React, Java, Spring Boot",
     link: "",

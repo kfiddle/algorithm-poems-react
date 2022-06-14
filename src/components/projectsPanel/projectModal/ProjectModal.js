@@ -58,10 +58,6 @@ const ProjectModal = (props) => {
         </div>
         <div className={styles.slideDiv}>
           <div className={styles.slideImageDiv}>
-            <img src={image} className={styles.image} />
-          </div>
-
-          <div className={styles.arrowsDiv}>
             <div>
               <FaAngleLeft
                 className={styles.arrow}
@@ -71,6 +67,8 @@ const ProjectModal = (props) => {
               />
             </div>
 
+            <img src={image} className={styles.image} />
+
             <div>
               <FaAngleRight
                 className={styles.arrow}
@@ -79,6 +77,26 @@ const ProjectModal = (props) => {
                 }}
               />
             </div>
+          </div>
+
+          <div className={styles.arrowsDiv}>
+            {/* <div>
+              <FaAngleLeft
+                className={styles.arrow}
+                onClick={() => {
+                  moveSlides("back");
+                }}
+              />
+            </div> */}
+            {/* 
+            <div>
+              <FaAngleRight
+                className={styles.arrow}
+                onClick={() => {
+                  moveSlides("forward");
+                }}
+              />
+            </div> */}
           </div>
         </div>
       </div>
