@@ -31,6 +31,7 @@ import playerEntry from "./assets/orchestra-master/playerEntry.jpg";
 import possiblesTest from "./assets/orchestra-master/possiblesTest.jpg";
 import instrumentationForm from "./assets/orchestra-master/instrumentation.jpg";
 import autoFillHook from "./assets/orchestra-master/autoFill.jpg";
+import logShot from './assets/orchestra-master/orch-master-log.jpg';
 
 import "./App.css";
 import Background from "./components/UI/Background";
@@ -69,6 +70,7 @@ function App() {
       possiblesTest,
       instrumentationForm,
       autoFillHook,
+      logShot,
     });
   }, []);
 
@@ -100,7 +102,6 @@ function App() {
 
           {clickedChoice === ABOUTME && <AboutPanel />}
 
-          {/* {choices['Current Projects'] && <ProjectsPanel />} */}
           {clickedChoice === CURRENTPROJECTS && <ProjectsPanel1 />}
 
           {clickedChoice === CONTACT && <ContactFormPanel />}

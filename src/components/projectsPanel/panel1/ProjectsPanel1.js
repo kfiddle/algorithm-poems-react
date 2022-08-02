@@ -21,6 +21,7 @@ const ProjectsPanel1 = () => {
         images.playerEntry,
         images.possiblesTest,
         images.instrumentationForm,
+        images.logShot,
         images.autoFillHook,
       ],
       location: "third",
