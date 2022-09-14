@@ -1,5 +1,7 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import Header from "./components/header/Header";
 import PennyFarthing from "./components/pennyFarthing/PennyFarthing";
 import SideBar from "./components/sideBar/SideBar";
@@ -10,7 +12,7 @@ import ProjectsPanel1 from "./components/projectsPanel/panel1/ProjectsPanel1";
 
 import AllImages from "./contexts/images-preload";
 
-import headShot from './assets/headShot.JPG';
+import headShot from "./assets/headShot.JPG";
 
 import orchImage from "./assets/orchestra-master/rosterSpots.jpg";
 
@@ -31,7 +33,7 @@ import playerEntry from "./assets/orchestra-master/playerEntry.jpg";
 import possiblesTest from "./assets/orchestra-master/possiblesTest.jpg";
 import instrumentationForm from "./assets/orchestra-master/instrumentation.jpg";
 import autoFillHook from "./assets/orchestra-master/autoFill.jpg";
-import logShot from './assets/orchestra-master/orch-master-log.jpg';
+import logShot from "./assets/orchestra-master/orch-master-log.jpg";
 
 import "./App.css";
 import Background from "./components/UI/Background";
@@ -47,6 +49,23 @@ function App() {
   const [stripesClicked, setStripesClicked] = useState(false);
   const [clickedChoice, setClickedChoice] = useState("");
   const [images, setImages] = useState({});
+
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    return isDesktop ? children : null;
+  };
+  const Tablet = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+    return isTablet ? children : null;
+  };
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    return isMobile ? children : null;
+  };
+  const Default = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 });
+    return isNotMobile ? children : null;
+  };
 
   useEffect(() => {
     // setTimeout(() => {
@@ -98,7 +117,7 @@ function App() {
             choice={choiceHandler}
             visible={stripesClicked}
           />
-          {bikeRiding && <PennyFarthing />}
+          {/* {bikeRiding && <PennyFarthing />} */}
 
           {clickedChoice === ABOUTME && <AboutPanel />}
 

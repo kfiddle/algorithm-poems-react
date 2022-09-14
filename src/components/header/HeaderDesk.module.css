@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   align-items: center;
 
@@ -33,17 +33,4 @@ header {
   transition: cubic-bezier(0.4, 0, 0.58, 1) 2.75s;
 }
 
-@media (max-width: 820px) {
 
-  .titleDiv {
-    padding-left: 8%;
-  }
-
-  .mainTitle {
-    font-size: 1.5rem;
-  }
-
-  .titleLetters {
-    font-size: 1rem ;
-  }
-}
