@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import bigWheel from "../../assets/bigWheel.png";
 import pennyFrame from "../../assets/pennyFrame.png";
 import smallWheel from "../../assets/smallWheel-01.png";
 
-import styles from "./PennyFarthing2.module.css";
+import deskStyles from "./DeskBike.module.css";
+import phoneStyles from './PhoneBike.module.css';
 
 const PennyFarthing = (props) => {
-  // const [bikePlace, setBikePlace] = useState(-20);
-  const [bikePlace, setBikePlace] = useState(20);
+  const [bikePlace, setBikePlace] = useState(-20);
+  // const [bikePlace, setBikePlace] = useState(20);
 
-  // useEffect(() => {
-  //   const openingRide = setTimeout(() => {
-  //     setBikePlace(110);
-  //   }, 150);
-  // }, []);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const styles = !isMobile? deskStyles : phoneStyles;
+
+  useEffect(() => {
+    const openingRide = setTimeout(() => {
+      setBikePlace(110);
+    }, 150);
+  }, []);
 
   return (
     <div

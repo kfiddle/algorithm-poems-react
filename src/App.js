@@ -117,7 +117,7 @@ function App() {
             choice={choiceHandler}
             visible={stripesClicked}
           />
-          {/* {bikeRiding && <PennyFarthing />} */}
+          {bikeRiding && <PennyFarthing />}
 
           {clickedChoice === ABOUTME && <AboutPanel />}
 

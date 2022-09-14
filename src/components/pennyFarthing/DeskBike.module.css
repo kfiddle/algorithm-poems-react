@@ -1,0 +1,37 @@
+.bikeContainer {
+  position: absolute;
+  bottom: 10vh;
+  transition: 20s linear;
+}
+
+.bigWheel {
+  position: relative;
+  right: 14%;
+  animation: spin infinite 4s linear;
+}
+
+.pennyFrame {
+  position: relative;
+  transform: translate(38%, -26%);
+  z-index: 3;
+}
+
+.smallWheel {
+  position: relative;
+  left: 32%;
+  bottom: 5%;
+  animation: spin infinite 1.6s linear;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
