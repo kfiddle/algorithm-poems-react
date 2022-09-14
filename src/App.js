@@ -49,9 +49,9 @@ function App() {
   const [images, setImages] = useState({});
 
   useEffect(() => {
-    setTimeout(() => {
-      setBikeRiding(false);
-    }, 24000);
+    // setTimeout(() => {
+    //   setBikeRiding(false);
+    // }, 24000);
 
     setImages({
       headShot,

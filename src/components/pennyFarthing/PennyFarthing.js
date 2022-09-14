@@ -4,16 +4,17 @@ import bigWheel from "../../assets/bigWheel.png";
 import pennyFrame from "../../assets/pennyFrame.png";
 import smallWheel from "../../assets/smallWheel-01.png";
 
-import styles from "./PennyFarthing.module.css";
+import styles from "./PennyFarthing2.module.css";
 
 const PennyFarthing = (props) => {
-  const [bikePlace, setBikePlace] = useState(-20);
+  // const [bikePlace, setBikePlace] = useState(-20);
+  const [bikePlace, setBikePlace] = useState(20);
 
-  useEffect(() => {
-    const openingRide = setTimeout(() => {
-      setBikePlace(110);
-    }, 150);
-  }, []);
+  // useEffect(() => {
+  //   const openingRide = setTimeout(() => {
+  //     setBikePlace(110);
+  //   }, 150);
+  // }, []);
 
   return (
     <div

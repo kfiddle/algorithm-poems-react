@@ -17,8 +17,7 @@
 }
 
 .smallWheel {
-  /* position: relative; */
-  position: fixed;
+  position: relative;
   left: 32%;
   bottom: 5%;
 
