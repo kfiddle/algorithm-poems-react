@@ -1,12 +1,14 @@
 import { useState, useEffect, Fragment } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import MenuItem from "./MenuItem";
 import HiddenDiv from "./HiddenDiv";
 
 import styles from "./SideBar.module.css";
 
 const SideBar = (props) => {
-  const [sideBarPlace, setSideBarPlace] = useState(-25);
+  const [sideBarPlace, setSideBarPlace] = useState(-35);
   const [gradient, setGradient] = useState("#5a3939");
   const [hiddenDivSpot, setHiddenDivSpot] = useState(-20);
   const [hiddenDivAlive, setHiddenDivAlive] = useState(true);
@@ -16,6 +18,8 @@ const SideBar = (props) => {
   const [menu3, setMenu3] = useState("");
 
   const [options, setOptions] = useState(["", "", ""]);
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const clicked = (choice) => {
     props.choice(choice);
@@ -47,8 +51,9 @@ const SideBar = (props) => {
       }, 100);
 
       setSideBarPlace(10);
-      setTimeout(() => { setGradient('#565655') }, 500)
-      ;
+      setTimeout(() => {
+        setGradient("#565655");
+      }, 500);
     } else {
       setMenu1("");
       setMenu2("");
@@ -56,7 +61,7 @@ const SideBar = (props) => {
       setSideBarPlace(-25);
       setHiddenDivAlive(false);
       setHiddenDivSpot(-20);
-      setGradient('#5a3939');
+      setGradient("#5a3939");
     }
   }, [props.visible]);
 
@@ -73,6 +78,7 @@ const SideBar = (props) => {
         style={{
           transform: `translateX(${sideBarPlace}vw)`,
           background: `linear-gradient(to Right, white, ${gradient})`,
+          width: !isMobile ? '22vw' : '40vw'
         }}
       >
         {menu1}

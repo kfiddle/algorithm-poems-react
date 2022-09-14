@@ -68,9 +68,9 @@ function App() {
   };
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setBikeRiding(false);
-    // }, 24000);
+    setTimeout(() => {
+      setBikeRiding(false);
+    }, 20000);
 
     setImages({
       headShot,

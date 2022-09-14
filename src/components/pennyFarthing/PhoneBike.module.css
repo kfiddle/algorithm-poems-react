@@ -1,12 +1,13 @@
 .bikeContainer {
-  position: absolute;
+  position: fixed;
   bottom: 10vh;
-  transition: 20s linear;
+  z-index: 3;
+  animation: rideWillow 30s linear;
 }
 
 .bigWheel {
   position: relative;
-  animation: spin infinite 6s linear;
+  animation: spin infinite 10s linear;
 }
 
 .pennyFrame {
@@ -17,9 +18,8 @@
 
 .smallWheel {
   position: relative;
-  animation: smallSpin infinite 2s linear;
+  animation: smallSpin infinite 4s linear;
 }
-
 
 @keyframes spin {
   from {
@@ -39,4 +39,11 @@
   }
 }
 
-
+@keyframes rideWillow {
+  from {
+    transform: translateX(-60vw);
+  }
+  to {
+    transform: translateX(200vw);
+  }
+}

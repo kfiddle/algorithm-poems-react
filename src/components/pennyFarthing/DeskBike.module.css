@@ -1,7 +1,8 @@
 .bikeContainer {
-  position: absolute;
+  position: fixed;
   bottom: 10vh;
-  transition: 20s linear;
+  z-index: 3;
+  animation: rideWillow 30s linear;
 }
 
 .bigWheel {
@@ -23,7 +24,6 @@
   animation: spin infinite 1.6s linear;
 }
 
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -33,5 +33,11 @@
   }
 }
 
-
-
+@keyframes rideWillow {
+  from {
+    transform: translateX(-10vw);
+  }
+  to {
+    transform: translateX(140vw);
+  }
+}

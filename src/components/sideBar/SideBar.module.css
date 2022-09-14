@@ -8,7 +8,7 @@
     flex-direction: column;
     background: white;
     /* background: linear-gradient(to Right, white, #565655); */
-    width: 22vw;
+    /* width: 30vw; */
     height: 100vh;
     text-align: end;
     transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
