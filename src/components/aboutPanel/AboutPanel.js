@@ -1,7 +1,11 @@
 import { useState, useEffect, useContext, Fragment } from "react";
+
+import { useMediaQuery } from "react-responsive";
+
 import AllImages from "../../contexts/images-preload";
 
-import styles from "./AboutPanel.module.css";
+import deskStyles from "./AboutPanel.module.css";
+import phoneStyles from "./PhoneAboutPanel.module.css";
 
 const AboutPanel = (props) => {
   const [leftCurtainPlace, setLeftCurtainPlace] = useState(-52);
@@ -10,7 +14,11 @@ const AboutPanel = (props) => {
   const [imageFilter, setImageFilter] = useState(300);
   const [leftCurtainOpacity, setLeftCurtainOpacity] = useState(0.2);
 
+  const isSmallish = useMediaQuery({ maxWidth: 1240 });
+
   const { images } = useContext(AllImages);
+
+  const styles = !isSmallish ? deskStyles : phoneStyles;
 
   useEffect(() => {
     setTimeout(() => {

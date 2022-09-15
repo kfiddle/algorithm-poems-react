@@ -1,13 +1,17 @@
 import { useState, useEffect, useRef, useReducer } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import useDetailSpeller from "../../hooks/useDetailSpeller";
 
 import emailjs from "emailjs-com";
 
-import styles from "./ContactFormPanel.module.css";
+import deskStyles from "./ContactFormPanel.module.css";
+import phoneStyles from "./PhoneContactForm.module.css";
 
 const userId = "user_ziX5oSLNJRahUxs9dz2xC";
 const serviceId = "service_whc7i1l";
+
 const templateId = "template_xhux42i";
 
 const greeting =
@@ -48,6 +52,11 @@ const ContactFormPanel = () => {
   const [headerText, setHeaderText] = useState(greeting);
 
   const buttonText = useDetailSpeller(emptySubmission, "Nice try...", "Submit");
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const styles = !isMobile ? deskStyles : phoneStyles;
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -106,7 +115,6 @@ const ContactFormPanel = () => {
       message: inputs.message,
     };
 
-
     if (
       contactInfo.fullName.length === 0 &&
       contactInfo.phoneNumber.length === 0 &&
@@ -130,12 +138,12 @@ const ContactFormPanel = () => {
       style={{ transform: `translateY(${contactPanelPlace}vh)` }}
     >
       <div className={styles.contactBoxHeader}>
-        <h2>{headerText}</h2>
+        <h2 className={styles.h2}>{headerText}</h2>
       </div>
 
       <div className={styles.inputsBox}>
         <input
-          className={styles.nameInput}
+          className={`${styles.input} ${styles.nameInput}`}
           placeholder={"Name"}
           style={{ transform: `translateX(${inputPlaces.nameSpot}vw)` }}
           onChange={(event) => {
@@ -145,7 +153,7 @@ const ContactFormPanel = () => {
           value={inputs.name}
         ></input>
         <input
-          className={styles.emailInput}
+          className={`${styles.input} ${styles.emailInput}`}
           placeholder={"Email"}
           style={{ transform: `translateX(${inputPlaces.emailSpot}vw)` }}
           onChange={(event) => {
@@ -155,7 +163,7 @@ const ContactFormPanel = () => {
           value={inputs.email}
         ></input>
         <input
-          className={styles.phoneInput}
+          className={`${styles.input} ${styles.phoneInput}`}
           placeholder={"Phone Number"}
           style={{ transform: `translateX(${inputPlaces.phoneSpot}vw)` }}
           onChange={formatNumber}
@@ -166,6 +174,7 @@ const ContactFormPanel = () => {
 
       <textarea
         className={styles.messageInput}
+        placeholder="leave me a message ..."
         onChange={(event) => {
           setInputDispatcher({ type: "message", message: event.target.value });
           setEmptySubmission(false);

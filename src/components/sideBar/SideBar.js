@@ -47,7 +47,7 @@ const SideBar = (props) => {
 
       setHiddenDivAlive(true);
       setTimeout(() => {
-        setHiddenDivSpot(10);
+        setHiddenDivSpot(15);
       }, 100);
 
       setSideBarPlace(20);
