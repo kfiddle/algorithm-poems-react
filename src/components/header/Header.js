@@ -8,12 +8,11 @@ import deskStyles from "./HeaderDesk.module.css";
 import phoneStyles from "./HeaderPhone.module.css";
 
 const Header = (props) => {
-  const [headerPosition, setHeaderPosition] = useState("translateY(-20vh)");
+  const [headerPosition, setHeaderPosition] = useState("translateY(-30vh)");
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const panel = props.panel;
 
-  console.log(isMobile);
 
   const background = panel === "Current Projects" ? "white" : "transparent";
   const titleColor = panel === "Current Projects" ? "black" : "white";

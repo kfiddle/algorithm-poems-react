@@ -10,7 +10,7 @@ import styles from "./SideBar.module.css";
 const SideBar = (props) => {
   const [sideBarPlace, setSideBarPlace] = useState(-35);
   const [gradient, setGradient] = useState("#5a3939");
-  const [hiddenDivSpot, setHiddenDivSpot] = useState(-20);
+  const [hiddenDivSpot, setHiddenDivSpot] = useState(-30);
   const [hiddenDivAlive, setHiddenDivAlive] = useState(true);
 
   const [menu1, setMenu1] = useState("");
@@ -50,7 +50,7 @@ const SideBar = (props) => {
         setHiddenDivSpot(10);
       }, 100);
 
-      setSideBarPlace(10);
+      setSideBarPlace(20);
       setTimeout(() => {
         setGradient("#565655");
       }, 500);
@@ -58,7 +58,7 @@ const SideBar = (props) => {
       setMenu1("");
       setMenu2("");
       setMenu3("");
-      setSideBarPlace(-25);
+      setSideBarPlace(-50);
       setHiddenDivAlive(false);
       setHiddenDivSpot(-20);
       setGradient("#5a3939");
@@ -78,7 +78,8 @@ const SideBar = (props) => {
         style={{
           transform: `translateX(${sideBarPlace}vw)`,
           background: `linear-gradient(to Right, white, ${gradient})`,
-          width: !isMobile ? '22vw' : '40vw'
+          width: !isMobile ? "22vw" : "40vw",
+          marginTop: !isMobile ? "20vh" : "30vh",
         }}
       >
         {menu1}

@@ -11,7 +11,10 @@ const MenuItem = (props) => {
 
   const styles = !isMobile ? deskStyles : phoneStyles;
 
-  const darkLetters = { color: "gold", fontSize: "1.8rem" };
+  const darkLetters = {
+    color: "gold",
+    fontSize: !isMobile ? "1.8rem" : "1.3rem",
+  };
 
   const clickHandler = () => {
     props.chosen(props.title);
