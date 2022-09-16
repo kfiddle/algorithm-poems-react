@@ -14,6 +14,8 @@ const serviceId = "service_whc7i1l";
 
 const templateId = "template_xhux42i";
 
+const testTemplateId = "template_38pylf2";
+
 const greeting =
   " Feel free to share as much, (or as little), information as you'd like here";
 
@@ -56,7 +58,6 @@ const ContactFormPanel = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const styles = !isMobile ? deskStyles : phoneStyles;
-
 
   useEffect(() => {
     setTimeout(() => {
@@ -125,7 +126,13 @@ const ContactFormPanel = () => {
       return;
     }
 
-    emailjs.send(serviceId, templateId, contactInfo, userId);
+    const testContact = {
+      toEmail: "chris@eriephil.com",
+      message: "CN, if you actually get this, it means I can email from a button on this app",
+    };
+
+    // emailjs.send(serviceId, templateId, contactInfo, userId);
+    emailjs.send(serviceId, testTemplateId, testContact, userId);
 
     setfoneNumber("");
     setInputDispatcher({ type: "reset" });
