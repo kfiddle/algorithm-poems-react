@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+
+import { useMediaQuery } from "react-responsive";
+
 import styles from "./WarrantOfficerStripes.module.css";
 
 const WarrantOfficerStripes = (props) => {
@@ -10,6 +13,8 @@ const WarrantOfficerStripes = (props) => {
 
   const [spin, setSpin] = useState([0, 0, 0]);
   const [clicked, setClicked] = useState(false);
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const panel = props.panel;
 
@@ -71,7 +76,6 @@ const WarrantOfficerStripes = (props) => {
             style={{
               top: "10px",
               transform: clicked ? `rotate(${spin[0]}turn)` : "",
-              // backgroundColor: barColors.bar1,
             }}
           ></span>
           <span
@@ -79,7 +83,6 @@ const WarrantOfficerStripes = (props) => {
             style={{
               top: "26px",
               transform: clicked ? `rotate(${spin[1]}turn)` : "",
-              // backgroundColor: barColors.bar2,
             }}
           ></span>
           <span
@@ -87,11 +90,15 @@ const WarrantOfficerStripes = (props) => {
             style={{
               top: "41px",
               transform: clicked ? `rotate(${spin[2]}turn)` : "",
-              // backgroundColor: barColors.bar3,
             }}
           ></span>
         </div>
-        <h3 className={styles.menuLabel}>{!panel ? "HOME" : panel}</h3>
+        <h3
+          className={styles.menuLabel}
+          style={{ fontSize: isMobile ? ".75rem" : "1rem" }}
+        >
+          {!panel ? "HOME" : panel}
+        </h3>
       </div>
     </div>
   );
